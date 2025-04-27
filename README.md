@@ -19,3 +19,9 @@ Bu proje, kullanıcıların konumlarını veya şehir/ilçe seçimlerini kullana
 - Şehir ve ilçe seçimi ile eczane listesi
 - Harita pinlerinde Eczane isimleri
 - Yol tarifi alma imkanı
+
+## Katkıda Bulunmak
+
+Projeye katkıda bulunmak ister misiniz? Harika! 🎉  
+Başlamadan önce lütfen [CONTRIBUTING.md](./CONTRIBUTING.md) dosyasını okuyun.  
+Orada, doğru katkıda bulunma adımlarını ve kod düzeni kurallarımızı bulabilirsiniz.
