@@ -1,0 +1,39 @@
+{
+    "Ankara": {
+      "Çankaya": [
+        {
+          "isim": "Sağlık Eczanesi",
+          "adres": "Atatürk Caddesi No:12, Çankaya, Ankara",
+          "latitude": 39.9208,
+          "longitude": 32.8541
+        }
+      ],
+      "Keçiören": [
+        {
+          "isim": "Şifa Eczanesi",
+          "adres": "İnönü Bulvarı No:45, Keçiören, Ankara",
+          "latitude": 39.9670,
+          "longitude": 32.8644
+        }
+      ]
+    },
+    "İstanbul": {
+      "Kadıköy": [
+        {
+          "isim": "Huzur Eczanesi",
+          "adres": "Bahariye Caddesi No:23, Kadıköy, İstanbul",
+          "latitude": 40.9890,
+          "longitude": 29.0282
+        }
+      ],
+      "Beşiktaş": [
+        {
+          "isim": "Deniz Eczanesi",
+          "adres": "Barbaros Bulvarı No:60, Beşiktaş, İstanbul",
+          "latitude": 41.0438,
+          "longitude": 29.0094
+        }
+      ]
+    }
+  }
+  
