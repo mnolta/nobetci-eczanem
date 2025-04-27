@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
 
-export default function PanelComponent({ panelAcik, setPanelAcik, eczanelerData }) {
+export default function PanelComponent({
+    panelAcik,
+    setPanelAcik,
+    eczanelerData,
+    secilenSehir,
+    setSecilenSehir,
+    secilenIlce,
+    setSecilenIlce,
+    yakinEczaneler
+}) {
     const [touchStartY, setTouchStartY] = useState(null);
     const [touchEndY, setTouchEndY] = useState(null);
 
-    const [secilenSehir, setSecilenSehir] = useState('');
-    const [secilenIlce, setSecilenIlce] = useState('');
     const [ilceListesi, setIlceListesi] = useState([]);
     const [eczaneler, setEczaneler] = useState([]);
 
@@ -69,15 +76,15 @@ export default function PanelComponent({ panelAcik, setPanelAcik, eczanelerData 
                 <div
                     onClick={() => setPanelAcik(!panelAcik)}
                     style={{
-                        width: '40px',
-                        height: '5px',
-                        background: '#999',
+                        width: '60px',
+                        height: '6px',
+                        background: '#ccc',
                         borderRadius: '10px',
                         cursor: 'pointer',
                         boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
                         alignSelf: 'center',
-                        marginTop: '8px',
-                        marginBottom: '8px',
+                        marginTop: '10px',
+                        marginBottom: '10px',
                         flexShrink: 0
                     }}
                 />
@@ -88,12 +95,23 @@ export default function PanelComponent({ panelAcik, setPanelAcik, eczanelerData 
                     overflowY: 'auto',
                     padding: '0 20px 20px 20px'
                 }}>
+
+
                     {/* Şehir Dropdown */}
                     {eczanelerData && typeof eczanelerData === 'object' && (
                         <select
                             value={secilenSehir}
                             onChange={(e) => setSecilenSehir(e.target.value)}
-                            style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+                            style={{
+                                width: '100%',
+                                padding: '12px',
+                                marginBottom: '12px',
+                                border: '1px solid #ddd',
+                                borderRadius: '8px',
+                                background: '#f9f9f9',
+                                fontSize: '16px',
+                                color: '#333'
+                            }}
                         >
                             <option value="">Şehir Seçin</option>
                             {Object.keys(eczanelerData).map((sehir, index) => (
@@ -107,7 +125,16 @@ export default function PanelComponent({ panelAcik, setPanelAcik, eczanelerData 
                         <select
                             value={secilenIlce}
                             onChange={(e) => setSecilenIlce(e.target.value)}
-                            style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+                            style={{
+                                width: '100%',
+                                padding: '12px',
+                                marginBottom: '12px',
+                                border: '1px solid #ddd',
+                                borderRadius: '8px',
+                                background: '#f9f9f9',
+                                fontSize: '16px',
+                                color: '#333'
+                            }}
                         >
                             <option value="">İlçe Seçin</option>
                             {ilceListesi.map((ilce, index) => (
@@ -116,12 +143,41 @@ export default function PanelComponent({ panelAcik, setPanelAcik, eczanelerData 
                         </select>
                     )}
 
+                    {/* En yakın 5 Eczane Listesi */}
+                    {(!secilenSehir || !secilenIlce) && yakinEczaneler.length > 0 && (
+                        <div style={{ marginBottom: '20px' }}>
+                            <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>
+                                Konumunuza göre Size En Yakın Eczaneler
+                            </h3>
+                            {yakinEczaneler.map((eczane, index) => (
+                                <div key={index} style={{
+                                    background: '#fff',
+                                    borderRadius: '10px',
+                                    padding: '10px',
+                                    marginBottom: '10px',
+                                    boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+                                }}>
+                                    <strong style={{ fontSize: '16px', color: '#333' }}>{eczane.isim}</strong><br />
+                                    <span style={{ fontSize: '14px', color: '#666' }}>{eczane.adres}</span><br />
+                                    <span style={{ fontSize: '12px', color: '#888' }}>{eczane.mesafe.toFixed(2)} km yakınınızda</span><br />
+                                    <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline', fontSize: '14px' }}>
+                                        Yol Tarifi Al
+                                    </a>
+                                </div>
+                            ))}
+                        </div>
+                    )}
 
                     {/* Eczane Listesi */}
                     {Array.isArray(eczaneler) && eczaneler.map((eczane, index) => (
-                        <div key={index} style={{ marginBottom: '15px' }}>
-                            <strong>{eczane.isim}</strong><br />
-                            {eczane.adres}<br />
+                        <div key={index} style={{
+                            marginBottom: '15px', background: '#fff',
+                            borderRadius: '10px',
+                            padding: '10px',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+                        }}>
+                            <strong style={{ fontSize: '16px', color: '#333' }}>{eczane.isim}</strong><br />
+                            <span style={{ fontSize: '14px', color: '#666' }}>{eczane.adres}</span><br />
                             <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer">
                                 Yol Tarifi Al
                             </a>
