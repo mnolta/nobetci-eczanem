@@ -56,47 +56,13 @@ export default function MapComponent({ konum, eczaneler, yakinEczaneler, tema, s
 
     return (
         <>
-            {/* Tema Seçimi Sağ Üstte */}
-            <div style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                zIndex: 1000,
-                background: 'rgba(255,255,255,0.95)',
-                padding: '10px',
-                borderRadius: '10px',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
-                display: 'flex',
-                gap: '8px'
-            }}>
-                <button onClick={() => setTema('light')} style={{
-                    padding: '8px 12px',
-                    borderRadius: '8px',
-                    background: '#eee',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontWeight: 'bold'
-                }}>
-                    Açık Tema
-                </button>
-                <button onClick={() => setTema('dark')} style={{
-                    padding: '8px 12px',
-                    borderRadius: '8px',
-                    background: '#333',
-                    color: 'white',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontWeight: 'bold'
-                }}>
-                    Koyu Tema
-                </button>
-            </div>
+
 
 
             <MapContainer center={konum} zoom={13} style={{ height: '100vh', width: '100%' }}>
                 <TileLayer
                     url={tileURL}
-                    attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+                    attribution=""
                 />
                 {/* Kullanıcı konumunu haritada merkeze al */}
                 <KonumaGit konum={konum} />
