@@ -16,26 +16,51 @@ export default function PanelComponent({
     const [ilceListesi, setIlceListesi] = useState([]);
     const [eczaneler, setEczaneler] = useState([]);
 
+    const [panelHeight, setPanelHeight] = useState('40vh');
+
+
     const handleTouchStart = (e) => {
         setTouchStartY(e.touches[0].clientY);
     };
 
     const handleTouchMove = (e) => {
-        setTouchEndY(e.touches[0].clientY);
+        if (touchStartY === null) return;
+
+        const currentY = e.touches[0].clientY;
+        const deltaY = currentY - touchStartY;
+
+        const currentHeight = parseFloat(panelHeight); // vh olarak
+        const vhDelta = (deltaY / window.innerHeight) * 100;
+
+        let newHeight = currentHeight - vhDelta;
+
+        newHeight = Math.max(40, Math.min(newHeight, 90));
+
+        setPanelHeight(`${newHeight}vh`);
+        setTouchStartY(currentY); // hareket akıcı devam etsin diye güncelliyoruz
     };
 
+
+
+
+
     const handleTouchEnd = () => {
-        if (touchStartY && touchEndY) {
-            const fark = touchEndY - touchStartY;
-            if (fark > 50) {
-                setPanelAcik(false);
-            } else if (fark < -50) {
-                setPanelAcik(true);
-            }
+        const numericHeight = parseFloat(panelHeight);
+
+        // Panel yüksekliği 65'ten azsa → 40'a indir (yarı açık)
+        // Değilse → tam açık 90 yap
+        if (numericHeight <= 65) {
+            setPanelHeight('40vh');
+        } else {
+            setPanelHeight('90vh');
         }
+
+        setPanelAcik(true); // panel açık sayılmaya devam etsin
         setTouchStartY(null);
-        setTouchEndY(null);
     };
+
+
+
 
     useEffect(() => {
         if (secilenSehir) {
@@ -56,17 +81,17 @@ export default function PanelComponent({
             <div
                 style={{
                     position: 'absolute',
-                    bottom: panelAcik ? '0' : '-35vh',
+                    bottom: panelAcik ? '0' : '-50px',
                     width: '100%',
-                    height: '40vh',
-                    background: 'rgba(255,255,255,0.95)',
-                    borderTopLeftRadius: '20px',
-                    borderTopRightRadius: '20px',
+                    height: panelHeight,
                     transition: 'bottom 0.4s ease',
                     zIndex: 999,
                     display: 'flex',
                     flexDirection: 'column',
                     overflow: 'hidden',
+                    background: 'rgba(255,255,255,0.95)',
+                    borderTopLeftRadius: '20px',
+                    borderTopRightRadius: '20px',
                 }}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -74,7 +99,15 @@ export default function PanelComponent({
             >
                 {/* Gri Çubuk */}
                 <div
-                    onClick={() => setPanelAcik(!panelAcik)}
+                    onClick={() => {
+                        const numericHeight = parseFloat(panelHeight);
+                        if (numericHeight <= 60) {
+                            setPanelHeight('90vh');
+                        } else {
+                            setPanelHeight('40vh');
+                        }
+                        setPanelAcik(true);
+                    }}
                     style={{
                         width: '60px',
                         height: '6px',
@@ -84,8 +117,8 @@ export default function PanelComponent({
                         boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
                         alignSelf: 'center',
                         marginTop: '10px',
-                        marginBottom: '10px',
-                        flexShrink: 0
+                        marginBottom: '20px',
+                        flexShrink: 0,
                     }}
                 />
 
