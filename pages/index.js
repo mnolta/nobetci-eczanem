@@ -7,11 +7,9 @@ export default function Home() {
   const [eczaneVerisi, setEczaneVerisi] = useState({});
 
   useEffect(() => {
-    fetch('/eczaneler.json')
+    fetch('/api/crawl')
       .then(res => res.json())
-      .then(data => {
-        setEczaneVerisi(data);
-      })
+      .then(data => setEczaneVerisi(data))
       .catch(err => console.error('Veri çekme hatası:', err));
   }, []);
   useEffect(() => {
