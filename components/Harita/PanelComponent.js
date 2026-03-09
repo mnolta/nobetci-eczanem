@@ -8,7 +8,8 @@ export default function PanelComponent({
     setSecilenSehir,
     secilenIlce,
     setSecilenIlce,
-    yakinEczaneler
+    yakinEczaneler,
+    ilceler = []
 }) {
     const [touchStartY, setTouchStartY] = useState(null);
     const [touchEndY, setTouchEndY] = useState(null);
@@ -64,17 +65,28 @@ export default function PanelComponent({
 
     useEffect(() => {
         if (secilenSehir) {
-            setIlceListesi(Object.keys(eczanelerData[secilenSehir] || {}));
+            // Eğer ilçeler prop'u verilmişse ve Ankara seçilmişse, onu kullan
+            if (secilenSehir === 'Ankara' && ilceler.length > 0) {
+                setIlceListesi(ilceler);
+            } else {
+                // Değilse data'dan çıkar
+                setIlceListesi(Object.keys(eczanelerData[secilenSehir] || {}));
+            }
             setSecilenIlce('');
             setEczaneler([]);
         }
-    }, [secilenSehir]);
+    }, [secilenSehir, ilceler]);
 
     useEffect(() => {
+        // İlçe seçildiğinde, zaten alınmış verileden filtrele (API request atmaz!)
         if (secilenSehir && secilenIlce) {
-            setEczaneler(eczanelerData[secilenSehir][secilenIlce] || []);
+            const eczanes = eczanelerData?.[secilenSehir]?.[secilenIlce];
+            setEczaneler(Array.isArray(eczanes) ? eczanes : []);
+            console.log(`İlçe seçildi: ${secilenIlce} (${eczanes?.length || 0} eczane)`);
+        } else {
+            setEczaneler([]);
         }
-    }, [secilenIlce]);
+    }, [secilenIlce, secilenSehir, eczanelerData]);
 
     return (
         <>

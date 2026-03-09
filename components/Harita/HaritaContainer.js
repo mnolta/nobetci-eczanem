@@ -9,11 +9,11 @@ const MapComponent = dynamic(() => import('./MapComponent'), {
 });
 const PanelComponent = dynamic(() => import('./PanelComponent'), { ssr: false });
 
-export default function HaritaContainer({ konum, eczanelerData }) {
+export default function HaritaContainer({ konum, eczanelerData, ilceler = [] }) {
     const [tema, setTema] = useState('light');
     const [panelAcik, setPanelAcik] = useState(true);
 
-    const [secilenSehir, setSecilenSehir] = useState('');
+    const [secilenSehir, setSecilenSehir] = useState('Ankara');
     const [secilenIlce, setSecilenIlce] = useState('');
 
     const seciliEczaneler = eczanelerData?.[secilenSehir]?.[secilenIlce] || [];
@@ -72,6 +72,7 @@ export default function HaritaContainer({ konum, eczanelerData }) {
                 secilenIlce={secilenIlce}
                 setSecilenIlce={setSecilenIlce}
                 yakinEczaneler={yakinEczaneler}
+                ilceler={ilceler}
             />
         </div>
     );
