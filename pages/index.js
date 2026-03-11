@@ -10,24 +10,34 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/crawl')
-      .then(res => {
-        if (!res.ok) {
-          throw new Error('Veri alınamadı');
+    const fetchData = async (isRetry = false) => {
+      try {
+        const url = isRetry ? '/api/crawl?force=true' : '/api/crawl';
+        const res = await fetch(url);
+
+        if (!res.ok) throw new Error('API error');
+        const data = await res.json();
+
+        // Validate data format
+        if (!data || !data.ilceler || !data.eczaneler) {
+          throw new Error('Invalid data format');
         }
-        return res.json();
-      })
-      .then(data => {
-        // API yeni format: { ilceler: [...], eczaneler: {...} }
-        setIlcelerListesi(data.ilceler || []);
-        setEczaneVerisi(data.eczaneler || data); // eski format uyumluluğu
+
+        setIlcelerListesi(data.ilceler);
+        setEczaneVerisi(data.eczaneler);
         setLoading(false);
-      })
-      .catch(err => {
-        console.error('Veri çekme hatası:', err);
-        setError('Nöbetçi eczane verileri şu anda yüklenemiyor. Lütfen daha sonra tekrar deneyin.');
-        setLoading(false);
-      });
+      } catch (err) {
+        // Retry once if first attempt fails
+        if (!isRetry) {
+          setTimeout(() => fetchData(true), 2000);
+        } else {
+          setError('Nöbetçi eczane verileri şu anda yüklenemiyor. Lütfen daha sonra tekrar deneyin.');
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchData();
   }, []);
   useEffect(() => {
     if (navigator.geolocation) {
