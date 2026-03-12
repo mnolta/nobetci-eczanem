@@ -9,8 +9,78 @@
     #__next {
         @apply h-full overflow-hidden;
     }
+
+    /* Mobil uyumluluk */
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+
+    body {
+        -webkit-touch-callout: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Mobil cihazlarda input/select minimum 44px olmalı (a11y) */
+    input,
+    select,
+    textarea,
+    button {
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    /* Link ve buton hover efektleri mobilde düzgün çalışsın */
+    button {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    a {
+        -webkit-touch-callout: inherit;
+    }
 }
 
 .leaflet-control-attribution {
     display: none !important;
+}
+
+/* Leaflet kontrol z-index'i uyarıların altında kal */
+.leaflet-control {
+    z-index: 500 !important;
+}
+
+/* Responsive harita ve panel */
+@media (max-width: 768px) {
+    html, body, #__next {
+        max-width: 100%;
+        max-height: 100vh;
+    }
+}
+
+/* Select dropdown styling - Google Maps benzeri */
+select {
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+select:hover:not(:disabled) {
+    border-color: #bbb;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
+}
+
+select:focus {
+    border-color: #007AFF !important;
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.15) !important;
+}
+
+select:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
 }

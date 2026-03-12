@@ -9,15 +9,20 @@ export default function PanelComponent({
     secilenIlce,
     setSecilenIlce,
     yakinEczaneler,
-    ilceler = []
+    ilceler = [],
+    isMobile = false,
+    secilenEczane = null,
+    setSecilenEczane = () => {},
+    rotaBilgisi = null
 }) {
     const [touchStartY, setTouchStartY] = useState(null);
     const [touchEndY, setTouchEndY] = useState(null);
+    const [mouseDownY, setMouseDownY] = useState(null);
 
-    const [ilceListesi, setIlceListesi] = useState([]);
     const [eczaneler, setEczaneler] = useState([]);
 
-    const [panelHeight, setPanelHeight] = useState('40vh');
+    // Mobilse 45vh, desktop'ta 40vh
+    const [panelHeight, setPanelHeight] = useState(isMobile ? '45vh' : '40vh');
 
 
     const handleTouchStart = (e) => {
@@ -47,11 +52,12 @@ export default function PanelComponent({
 
     const handleTouchEnd = () => {
         const numericHeight = parseFloat(panelHeight);
+        const breakpoint = isMobile ? 55 : 65;
 
-        // Panel yüksekliği 65'ten azsa → 40'a indir (yarı açık)
+        // Panel yüksekliği breakpoint'ten azsa → küçük aç (45vh mobil / 40vh desktop)
         // Değilse → tam açık 90 yap
-        if (numericHeight <= 65) {
-            setPanelHeight('40vh');
+        if (numericHeight <= breakpoint) {
+            setPanelHeight(isMobile ? '45vh' : '40vh');
         } else {
             setPanelHeight('90vh');
         }
@@ -60,29 +66,62 @@ export default function PanelComponent({
         setTouchStartY(null);
     };
 
+    // Mouse drag için handlers
+    const handleMouseDown = (e) => {
+        setMouseDownY(e.clientY);
+    };
 
+    const handleMouseMove = (e) => {
+        if (mouseDownY === null) return;
 
+        const currentY = e.clientY;
+        const deltaY = currentY - mouseDownY;
+
+        const currentHeight = parseFloat(panelHeight);
+        const vhDelta = (deltaY / window.innerHeight) * 100;
+
+        let newHeight = currentHeight - vhDelta;
+        newHeight = Math.max(40, Math.min(newHeight, 90));
+
+        setPanelHeight(`${newHeight}vh`);
+        setMouseDownY(currentY);
+    };
+
+    const handleMouseUp = () => {
+        if (mouseDownY === null) return;
+
+        const numericHeight = parseFloat(panelHeight);
+        const breakpoint = isMobile ? 55 : 65;
+
+        if (numericHeight <= breakpoint) {
+            setPanelHeight(isMobile ? '45vh' : '40vh');
+        } else {
+            setPanelHeight('90vh');
+        }
+
+        setMouseDownY(null);
+    };
 
     useEffect(() => {
-        if (secilenSehir) {
-            // Eğer ilçeler prop'u verilmişse ve Ankara seçilmişse, onu kullan
-            if (secilenSehir === 'Ankara' && ilceler.length > 0) {
-                setIlceListesi(ilceler);
-            } else {
-                // Değilse data'dan çıkar
-                setIlceListesi(Object.keys(eczanelerData[secilenSehir] || {}));
-            }
-            setSecilenIlce('');
-            setEczaneler([]);
+        if (mouseDownY !== null) {
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+
+            return () => {
+                document.removeEventListener('mousemove', handleMouseMove);
+                document.removeEventListener('mouseup', handleMouseUp);
+            };
         }
-    }, [secilenSehir, ilceler]);
+    }, [mouseDownY, panelHeight]);
+
+
+
 
     useEffect(() => {
         // İlçe seçildiğinde, zaten alınmış verileden filtrele (API request atmaz!)
         if (secilenSehir && secilenIlce) {
             const eczanes = eczanelerData?.[secilenSehir]?.[secilenIlce];
             setEczaneler(Array.isArray(eczanes) ? eczanes : []);
-            console.log(`İlçe seçildi: ${secilenIlce} (${eczanes?.length || 0} eczane)`);
         } else {
             setEczaneler([]);
         }
@@ -113,23 +152,25 @@ export default function PanelComponent({
                 <div
                     onClick={() => {
                         const numericHeight = parseFloat(panelHeight);
+                        const smallHeight = isMobile ? 45 : 40;
                         if (numericHeight <= 60) {
                             setPanelHeight('90vh');
                         } else {
-                            setPanelHeight('40vh');
+                            setPanelHeight(`${smallHeight}vh`);
                         }
                         setPanelAcik(true);
                     }}
+                    onMouseDown={handleMouseDown}
                     style={{
-                        width: '60px',
-                        height: '6px',
+                        width: isMobile ? '40px' : '50px',
+                        height: '4px',
                         background: '#ccc',
                         borderRadius: '10px',
-                        cursor: 'pointer',
+                        cursor: 'grab',
                         boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
                         alignSelf: 'center',
-                        marginTop: '10px',
-                        marginBottom: '20px',
+                        marginTop: isMobile ? '6px' : '8px',
+                        marginBottom: isMobile ? '10px' : '12px',
                         flexShrink: 0,
                     }}
                 />
@@ -138,96 +179,119 @@ export default function PanelComponent({
                 <div style={{
                     flex: 1,
                     overflowY: 'auto',
-                    padding: '0 20px 20px 20px'
+                    padding: isMobile ? '0 10px 16px 10px' : '0 12px 20px 12px'
                 }}>
-
-
-                    {/* Şehir Dropdown */}
-                    {eczanelerData && typeof eczanelerData === 'object' && (
-                        <select
-                            value={secilenSehir}
-                            onChange={(e) => setSecilenSehir(e.target.value)}
-                            style={{
-                                width: '100%',
-                                padding: '12px',
-                                marginBottom: '12px',
-                                border: '1px solid #ddd',
-                                borderRadius: '8px',
-                                background: '#f9f9f9',
-                                fontSize: '16px',
-                                color: '#333'
-                            }}
-                        >
-                            <option value="">Şehir Seçin</option>
-                            {Object.keys(eczanelerData).map((sehir, index) => (
-                                <option key={index} value={sehir}>{sehir}</option>
-                            ))}
-                        </select>
-                    )}
-
-                    {/* İlçe Dropdown */}
-                    {secilenSehir && ilceListesi.length > 0 && (
-                        <select
-                            value={secilenIlce}
-                            onChange={(e) => setSecilenIlce(e.target.value)}
-                            style={{
-                                width: '100%',
-                                padding: '12px',
-                                marginBottom: '12px',
-                                border: '1px solid #ddd',
-                                borderRadius: '8px',
-                                background: '#f9f9f9',
-                                fontSize: '16px',
-                                color: '#333'
-                            }}
-                        >
-                            <option value="">İlçe Seçin</option>
-                            {ilceListesi.map((ilce, index) => (
-                                <option key={index} value={ilce}>{ilce}</option>
-                            ))}
-                        </select>
-                    )}
 
                     {/* En yakın 5 Eczane Listesi */}
                     {(!secilenSehir || !secilenIlce) && yakinEczaneler.length > 0 && (
-                        <div style={{ marginBottom: '20px' }}>
-                            <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>
+                        <div style={{ marginBottom: isMobile ? '16px' : '20px' }}>
+                            <h3 style={{ fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 'bold', marginBottom: '8px' }}>
                                 Konumunuza göre Size En Yakın Eczaneler
                             </h3>
-                            {yakinEczaneler.map((eczane, index) => (
-                                <div key={index} style={{
-                                    background: '#fff',
-                                    borderRadius: '10px',
-                                    padding: '10px',
-                                    marginBottom: '10px',
-                                    boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
-                                }}>
-                                    <strong style={{ fontSize: '16px', color: '#333' }}>{eczane.isim}</strong><br />
-                                    <span style={{ fontSize: '14px', color: '#666' }}>{eczane.adres}</span><br />
-                                    <span style={{ fontSize: '12px', color: '#888' }}>{eczane.mesafe.toFixed(2)} km yakınınızda</span><br />
-                                    <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline', fontSize: '14px' }}>
-                                        Yol Tarifi Al
-                                    </a>
-                                </div>
-                            ))}
+                            {yakinEczaneler.map((eczane, index) => {
+                                const isSelected = secilenEczane?.isim === eczane.isim;
+                                return (
+                                    <div
+                                        key={index}
+                                        onClick={() => setSecilenEczane(eczane)}
+                                        style={{
+                                            background: isSelected ? '#e3f2fd' : '#fff',
+                                            borderRadius: '10px',
+                                            padding: isMobile ? '8px' : '10px',
+                                            marginBottom: isMobile ? '8px' : '10px',
+                                            boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                                            cursor: 'pointer',
+                                            border: isSelected ? '2px solid #007AFF' : 'none',
+                                            transition: 'all 0.2s ease'
+                                        }}>
+                                        <strong style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#333' }}>{eczane.isim}</strong><br />
+                                        <span style={{ fontSize: 'clamp(12px, 2vw, 14px)', color: '#666' }}>{eczane.adres}</span><br />
+                                        <span style={{ fontSize: 'clamp(11px, 1.8vw, 12px)', color: '#888' }}>{eczane.mesafe.toFixed(2)} km yakınınızda</span>
+
+                                        {/* Rota bilgisini göster */}
+                                        {isSelected && rotaBilgisi && (
+                                            <div style={{
+                                                marginTop: '8px',
+                                                paddingTop: '8px',
+                                                borderTop: '1px solid #ddd',
+                                                display: 'flex',
+                                                gap: '16px',
+                                                justifyContent: 'space-around'
+                                            }}>
+                                                <div style={{ textAlign: 'center' }}>
+                                                    <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                                        {rotaBilgisi.minutes} dk
+                                                    </div>
+                                                    <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Rota süresi</div>
+                                                </div>
+                                                <div style={{ textAlign: 'center' }}>
+                                                    <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                                        {rotaBilgisi.distance} km
+                                                    </div>
+                                                    <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Yol mesafesi</div>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline', fontSize: 'clamp(12px, 2vw, 14px)' }}>
+                                            Yol Tarifi Al
+                                        </a>
+                                    </div>
+                                );
+                            })}
                         </div>
                     )}
 
                     {/* Eczane Listesi */}
-                    {Array.isArray(eczaneler) && eczaneler.map((eczane, index) => (
-                        <div key={index} style={{
-                            marginBottom: '15px', background: '#fff',
-                            borderRadius: '10px',
-                            padding: '10px',
-                            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
-                        }}>
-                            <strong style={{ fontSize: '16px', color: '#333' }}>{eczane.isim}</strong><br />
-                            <span style={{ fontSize: '14px', color: '#666' }}>{eczane.adres}</span><br />
-                            <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer">
-                                Yol Tarifi Al
-                            </a>
-                        </div>
-                    ))}
+                    {Array.isArray(eczaneler) && eczaneler.map((eczane, index) => {
+                        const isSelected = secilenEczane?.isim === eczane.isim;
+                        return (
+                            <div
+                                key={index}
+                                onClick={() => setSecilenEczane(eczane)}
+                                style={{
+                                    marginBottom: isMobile ? '8px' : '15px',
+                                    background: isSelected ? '#e3f2fd' : '#fff',
+                                    borderRadius: '10px',
+                                    padding: isMobile ? '8px' : '10px',
+                                    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                                    cursor: 'pointer',
+                                    border: isSelected ? '2px solid #007AFF' : 'none',
+                                    transition: 'all 0.2s ease'
+                                }}>
+                                <strong style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#333' }}>{eczane.isim}</strong><br />
+                                <span style={{ fontSize: 'clamp(12px, 2vw, 14px)', color: '#666' }}>{eczane.adres}</span>
+
+                                {/* Rota bilgisini göster */}
+                                {isSelected && rotaBilgisi && (
+                                    <div style={{
+                                        marginTop: '8px',
+                                        paddingTop: '8px',
+                                        borderTop: '1px solid #ddd',
+                                        display: 'flex',
+                                        gap: '16px',
+                                        justifyContent: 'space-around'
+                                    }}>
+                                        <div style={{ textAlign: 'center' }}>
+                                            <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                                {rotaBilgisi.minutes} dk
+                                            </div>
+                                            <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Rota süresi</div>
+                                        </div>
+                                        <div style={{ textAlign: 'center' }}>
+                                            <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                                {rotaBilgisi.distance} km
+                                            </div>
+                                            <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Yol mesafesi</div>
+                                        </div>
+                                    </div>
+                                )}<br />
+                                <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(12px, 2vw, 14px)', color: '#0070f3', textDecoration: 'underline' }}>
+                                    Yol Tarifi Al
+                                </a>
+                            </div>
+                        );
+                    })}
 
                 </div>
 

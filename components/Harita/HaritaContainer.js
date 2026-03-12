@@ -12,9 +12,23 @@ const PanelComponent = dynamic(() => import('./PanelComponent'), { ssr: false })
 export default function HaritaContainer({ konum, eczanelerData, ilceler = [] }) {
     const [tema, setTema] = useState('light');
     const [panelAcik, setPanelAcik] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
+    const [secilenEczane, setSecilenEczane] = useState(null);
+    const [rotaBilgisi, setRotaBilgisi] = useState(null);
 
     const [secilenSehir, setSecilenSehir] = useState('Ankara');
     const [secilenIlce, setSecilenIlce] = useState('');
+
+    // Mobil algılaması
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const seciliEczaneler = eczanelerData?.[secilenSehir]?.[secilenIlce] || [];
 
@@ -57,11 +71,19 @@ export default function HaritaContainer({ konum, eczanelerData, ilceler = [] }) 
             <MapComponent
                 konum={konum}
                 eczaneler={seciliEczaneler}
+                eczanelerData={eczanelerData}
                 tema={tema}
                 setTema={setTema}
                 yakinEczaneler={yakinEczaneler}
                 secilenSehir={secilenSehir}
+                setSecilenSehir={setSecilenSehir}
                 secilenIlce={secilenIlce}
+                setSecilenIlce={setSecilenIlce}
+                isMobile={isMobile}
+                secilenEczane={secilenEczane}
+                setSecilenEczane={setSecilenEczane}
+                setRotaBilgisi={setRotaBilgisi}
+                rotaBilgisi={rotaBilgisi}
             />
             <PanelComponent
                 panelAcik={panelAcik}
@@ -73,6 +95,10 @@ export default function HaritaContainer({ konum, eczanelerData, ilceler = [] }) 
                 setSecilenIlce={setSecilenIlce}
                 yakinEczaneler={yakinEczaneler}
                 ilceler={ilceler}
+                isMobile={isMobile}
+                secilenEczane={secilenEczane}
+                setSecilenEczane={setSecilenEczane}
+                rotaBilgisi={rotaBilgisi}
             />
         </div>
     );
