@@ -584,7 +584,7 @@ eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* har
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"nobetci-eczane","version":"1.0.1","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"axios":"^1.9.0","cheerio":"^1.0.0-rc.12","fs":"^0.0.1-security","leaflet":"^1.9.4","leaflet-routing-machine":"^3.2.12","next":"^14.1.0","puppeteer":"^22.15.0","react":"^18.2.0","react-dom":"^18.2.0","react-leaflet":"^4.2.1","react-select":"^5.7.3","tailwindcss":"^4.1.4"},"devDependencies":{"@tailwindcss/postcss":"^4.1.4","autoprefixer":"^10.4.21","husky":"^9.1.7","postcss":"^8.5.3"},"main":"tailwind.config.js","keywords":[],"author":"","license":"ISC","description":""}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"nobetci-eczane","version":"1.0.2","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"axios":"^1.9.0","cheerio":"^1.0.0-rc.12","fs":"^0.0.1-security","leaflet":"^1.9.4","leaflet-routing-machine":"^3.2.12","next":"^14.1.0","puppeteer":"^22.15.0","react":"^18.2.0","react-dom":"^18.2.0","react-leaflet":"^4.2.1","react-select":"^5.7.3","tailwindcss":"^4.1.4"},"devDependencies":{"@tailwindcss/postcss":"^4.1.4","autoprefixer":"^10.4.21","husky":"^9.1.7","postcss":"^8.5.3"},"main":"tailwind.config.js","keywords":[],"author":"","license":"ISC","description":""}');
 
 /***/ })
 
