@@ -287,7 +287,7 @@ function SearchBar({ isMobile, eczanelerData, secilenSehir, setSecilenSehir, sec
                         Hakkında
                     </h2>
                     <p style={{ fontSize: '13px', color: '#888', lineHeight: '1.6', margin: 0 }}>
-                        Nöbetçi Eczane uygulaması, yakınında bulunan eczaneleri hızlıca bulmanıza yardımcı olur. Harita üzerinde görmek için il ve ilçe seçin.
+                        Nöbetçi Eczanem uygulaması, yakınında bulunan eczaneleri hızlıca bulmana yardımcı olur. Harita üzerinde diğer eczaneleri de görmek için il ve ilçe seçin.
                     </p>
                 </div>
 
@@ -297,7 +297,7 @@ function SearchBar({ isMobile, eczanelerData, secilenSehir, setSecilenSehir, sec
                         Özellikler
                     </h2>
                     <ul style={{ fontSize: '13px', color: '#888', lineHeight: '1.8', paddingLeft: '20px', margin: 0 }}>
-                        <li>📍 Konumunuzu belirle</li>
+                        <li>📍 Konumunu belirle</li>
                         <li>🗺️ Yakın eczaneleri gör</li>
                         <li>🛣️ Rota bilgisine eriş</li>
                         <li>🌙 Gece modu desteği</li>
@@ -375,7 +375,7 @@ function SearchBar({ isMobile, eczanelerData, secilenSehir, setSecilenSehir, sec
                     {/* Input */}
                     <input
                         type="text"
-                        placeholder="Bir yeri bulun"
+                        placeholder="Size en yakın eczaneyi bulun"
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                         onFocus={() => setSearchPanelOpen(true)}

@@ -1,319 +1,287 @@
 {
-  "timestamp": 1773258050061,
+  "timestamp": 1773298176551,
   "data": {
     "Ankara": {
       "Çankaya": [
         {
-          "isim": "CEVİZLİDERE HUZUR ECZANESİ",
-          "adres": "Cevizlidere Mah. 1283.Sokak No:. No:10/A Çankaya/ ANKARA                             03124731030",
-          "latitude": 39.88474243692,
-          "longitude": 32.820163965225
+          "isim": "NATURA ECZANESİ",
+          "adres": "Çukurambar Mh.1459.Cd.No:24/A Çankaya/ANKARA  42.Cadde Yunus Market Kar.                            03122201956",
+          "latitude": 39.901127511605,
+          "longitude": 32.803984880447
         },
         {
-          "isim": "NİLHAN ECZANESİ",
-          "adres": "Kızılırmak Mah. 1450. Sok. No:16/64 (Hayat Plaza) Çukurambar/ Çankaya /ANKARA Cimer-Özel Koru Hastanesi yakını                            03123121187",
-          "latitude": 39.901485544106,
-          "longitude": 32.813156375432
+          "isim": "EMEK SAĞLIK ECZANESİ",
+          "adres": "Emek Mah. Kırım Cad. No:80/C Çankaya/ ANKARA Emek Metrosu yanı                            03122211770",
+          "latitude": 39.924390797592,
+          "longitude": 32.815630913887
         },
         {
-          "isim": "EMEK ŞİFA ECZANESİ",
-          "adres": "Emek Mah. 8.Cad.(Bişkek Cad)  No:66 Emek /Çankaya/ ANKARA                              03122225001",
-          "latitude": 39.917981817013,
-          "longitude": 32.817213535309
+          "isim": "FERİDE ECZANESİ",
+          "adres": "Nenehatun Cad. No:63/A G.O.P. /Çankaya/ ANKARA  Turkuaz Göz Hast. Yanı                            03124361855",
+          "latitude": 39.898921660906,
+          "longitude": 32.868304252625
         },
         {
-          "isim": "HİLAL ECZANESİ",
-          "adres": "Hilal Mah. Aleksander Dubçek Cad.No:34 Çankaya/ANKARA                             03124400661",
-          "latitude": 39.867599976531,
-          "longitude": 32.851963271714
+          "isim": "BAŞKENT ECZANESİ",
+          "adres": "Yıldızevler Mah. Turan Güneş Bulvarı No:48/D Çankaya/ANKARA                             03124396221",
+          "latitude": 39.871881876242,
+          "longitude": 32.860860977808
         },
         {
-          "isim": "VERESELİ PARK ECZANESİ",
-          "adres": "Remzi Oğuz Arık Mah. Tunalı Hilmi Cad.No:114/C Çankaya /ANKARA \"SGK İLE SÖZLEŞMESİ YOKTUR\"                            03124269608",
-          "latitude": 39.902703149259,
-          "longitude": 32.860191240907
+          "isim": "YUNUS ECZANESİ",
+          "adres": "Tuna Cad. No:32/A   Yenişehir/Çankaya/ANKARA                              03124316786",
+          "latitude": 39.925140349941,
+          "longitude": 32.859313488007
         },
         {
-          "isim": "KIZILAY FIRAT ECZANESİ",
-          "adres": "Meşrutiyet Mah.Meşrutiyet Cad.Ergene Apt.No:20/D Çankaya/ANKARA                             03123859585",
-          "latitude": 39.917909559328,
-          "longitude": 32.857198822403
+          "isim": "BİRSU ECZANESİ",
+          "adres": "Aşağı Öveçler Mah. 1324. Cad. No:5/6-7  Çankaya/ANKARA                             03124720306",
+          "latitude": 39.890064620129,
+          "longitude": 32.827886044979
         },
         {
-          "isim": "ÇEVİK ECZANESİ",
-          "adres": "Huzur Mh. 1109 Sok.No:3/B Çankaya/ANKARA (Dikmen Cad.N:390)/ Keklikpınarı                             03124761640",
-          "latitude": 39.86888869177,
-          "longitude": 32.823693752289
+          "isim": "ANITTEPE DOĞA ECZANESİ",
+          "adres": "Turgut Reis Cad. No:29/12 Anıttepe/ Çankaya/ANKARA Kent Kulak Burun Boğaz Hast.yanı                            03128201885",
+          "latitude": 39.931954145985,
+          "longitude": 32.838679924607
         },
         {
-          "isim": "SELDA YILDIRIM ECZANESİ",
-          "adres": "Aziziye Mah. Hoşdere Cad. No:189/A Çankaya/ ANKARA Çankaya Lisesi yanı                            03124430658",
-          "latitude": 39.884966775489,
-          "longitude": 32.852734029293
-        },
-        {
-          "isim": "YAŞAMKENT ATA ECZANESİ",
-          "adres": "Yaşamkent Mah. 3222.Cadde No:2/D Gözümpark Yaşam Merkezi Çayyolu/ Çankaya/ ANKARA Ziraat Bankası-Carrefoursa yanı                            03122176060",
-          "latitude": 39.857889572938,
-          "longitude": 32.644667029381
-        },
-        {
-          "isim": "VERESELİ MEHTAP UYSAL ECZANESİ",
-          "adres": "Beytepe Mah. Kanuni Sultan Süleyman Bulvarı Kent Form İş Merkezi No:14/C-3 Çankaya/ ANKARA Ametis Rezidans Karşısı                            05322906689",
-          "latitude": 39.871103743186,
-          "longitude": 32.703069448471
+          "isim": "YALÇIN EROĞLU ECZANESİ",
+          "adres": "Prof. Dr. Ahmet Taner Kışlalı Mah. Alacaatlı Cad. (2873.Sok.)No:16/9 Çayyolu/ Çankaya/ ANKARA Bahçeşehir Koleji Karşısı                            03122405550",
+          "latitude": 39.869192339201,
+          "longitude": 32.685158007171
         }
       ],
       "Yenimahalle": [
         {
-          "isim": "ONUR EROL ECZANESİ",
-          "adres": "Demetevler Mah. Sami Efendi Cad. No:1/D Yenimahalle/ ANKARA Onkoloji Hastanesi karşısı                            03123349080",
-          "latitude": 39.96985188961,
-          "longitude": 32.781156599522
+          "isim": "PERİHAN ECZANESİ",
+          "adres": "Çarşı Cad. No:19/A Yenimahalle / ANKARA  Eski M.Kaymakamlığı-Y.M.Belediye arası                            03123154137",
+          "latitude": 39.964186426168,
+          "longitude": 32.81089425087
         },
         {
-          "isim": "ŞENTEPE IHLAMUR ECZANESİ",
-          "adres": "Burç Mah. Seval Cad. No:82/A Yenimahalle/ANKARA Adile Naşit Gündüz Bakımevi Karşısı                            03125117485",
-          "latitude": 39.987923347379,
-          "longitude": 32.801616214037
-        },
-        {
-          "isim": "GALA CADDE ECZANESİ",
-          "adres": "Ergazi Mah. Cengiz  Aytmatov Cad. Gala Batıkent Sitesi  No:A Blok 100 Nolu Dükkan Yenimahalle/ ANKARA Gala Batıkent Migros yanı                            03123625352",
-          "latitude": 39.959916461501,
-          "longitude": 32.713184058666
-        },
-        {
-          "isim": "GÖZDE ECZANESİ",
-          "adres": "Yeni Batı Mah. Necip Fazıl Cad. No:13/F/K Yenimahalle/ ANKARA  İstanbul Yolu Metro İstasyonu Karşısı                            03125661990",
-          "latitude": 39.980864897511,
-          "longitude": 32.663431763649
+          "isim": "ÇORUK ECZANESİ",
+          "adres": "Demetevler Mah. 360. Cad. (Eski 8.Cad.) No:1/E Demetevler/ Yenimahalle/ ANKARA Tepe Tıp Merkezi Karşısı                            03123467855",
+          "latitude": 39.968741857561,
+          "longitude": 32.78785943985
         }
       ],
       "Mamak": [
         {
-          "isim": "SELDA ECZANESİ",
-          "adres": "Kartaltepe Mah. Tıp Fakültesi Cad. No:147/B Mamak/ ANKARA Yapıkredi Aibinpaşa Şubesi kar.                            03123648841",
-          "latitude": 39.925679266667,
-          "longitude": 32.897408902645
+          "isim": "EGE ATA ECZANESİ",
+          "adres": "Ege Mah. 763. Cad. No:5/A Mamak/ ANKARA Ege2 Sağlık Ocağı Karşısı                            03123922001",
+          "latitude": 39.902255101886,
+          "longitude": 32.916589379311
         },
         {
-          "isim": "ASİLKAN ECZANESİ",
-          "adres": "Üreğil Mah. 19 Mayıs Bulvarı No:49/C Mamak/ ANKARA Mamak Devlet Hast.yanı-PetrolOfisi içi                            03123733373",
-          "latitude": 39.913361286034,
-          "longitude": 32.954156141259
-        },
-        {
-          "isim": "MİNERAL ECZANESİ",
-          "adres": "Cengizhan Mah. Şehitler Cad. No:64/B Mamak/ANKARA                             05425069598",
-          "latitude": 39.900901168254,
-          "longitude": 32.92655646801
-        }
-      ],
-      "Altındağ": [
-        {
-          "isim": "HAP ŞURUP ECZANESİ",
-          "adres": "Örnek Mah. Pamuk Sok.No:15/A-B Altındağ/ ANKARA                             03125173309",
-          "latitude": 39.953769567297,
-          "longitude": 32.865533530712
-        },
-        {
-          "isim": "SEMA NUR ECZANESİ",
-          "adres": "Sakarya Mah. Ulucanlar Cad. No:84/B Altındağ / ANKARA                              03123196766",
-          "latitude": 39.935605271729,
-          "longitude": 32.875202894211
-        },
-        {
-          "isim": "ALİRIZA ECZANESİ",
-          "adres": "Önder Mah. Demirhendek Cad. No:46/A Siteler/ Altındağ/ ANKARA Ank.Eğ.Arş.Hast.Semt Polikliniği yanı                            03123384342",
-          "latitude": 39.957371213691,
-          "longitude": 32.895607516402
-        },
-        {
-          "isim": "ALTINKÖY ECZANESİ",
-          "adres": "Karapürçek Mah. Şehit Celalettin İbiş Cad. No:18/E Altındağ/ANKARA Uçaklı Park Çaprazı Özkaralar Market Kar.                            05063566326",
-          "latitude": 39.9637876059,
-          "longitude": 32.970392480493
+          "isim": "ALTINBAŞAK ECZANESİ",
+          "adres": "Başak Mah. 1708.Sok. No:6/21 Mamak/ ANKARA                             05304013669",
+          "latitude": 39.962773070662,
+          "longitude": 32.957414090433
         }
       ],
       "Keçiören": [
         {
-          "isim": "GÜMÜŞ ECZANESİ",
-          "adres": "Gen.Dr.Tevfik Sağlam Cad. No:62/A Aşağı Eğlence- Etlik Keçiören/ ANKARA Aşağı Eğlence-Etlik/ GATA yanı                            03123234747",
-          "latitude": 39.972248675108,
-          "longitude": 32.84272134304
+          "isim": "SEVDE  ECZANESİ",
+          "adres": "General Dr.Tevfik Sağlam Cad.No:7/B Etlik /Keçiören/ ANKARA  Gülhane Hastanesi Karşısı                            03123520662",
+          "latitude": 39.969128315209,
+          "longitude": 32.840961813927
         },
         {
-          "isim": "YENİ ZEYNEP ECZANESİ",
-          "adres": "Ayvalı Mah. 146. Cad. Avdan Sok. No:2/A Etlik /Keçiören/ ANKARA  Ayvalı Cumartesi Pazar Karşısı                            03123318450",
-          "latitude": 39.987190716462,
-          "longitude": 32.816644906998
+          "isim": "ALPTUĞ ECZANESİ",
+          "adres": "Şehit Kubilay Mah. Özlem Cad. No:18/C Keçiören/ANKARA                             03123319969",
+          "latitude": 39.994637908461,
+          "longitude": 32.810100317001
         },
         {
-          "isim": "AKDENİZ ECZANESİ",
-          "adres": "Kuşcagız Mah. Gunsazak Cad.No:169/B Keçiören/ANKARA Sanatoryum Hastanesi Acil Çıkışı                            03123650101",
-          "latitude": 40.003102863006,
-          "longitude": 32.852127850056
+          "isim": "PINARSU ECZANESİ",
+          "adres": "Kamil Ocak Mah. Divrik Cad. No:49/B Keçiören / ANKARA                              03123405161",
+          "latitude": 39.985275358123,
+          "longitude": 32.882165908813
+        },
+        {
+          "isim": "AYHANLAR ECZANESİ",
+          "adres": "Pınarbaşı Mah. Aksaray Cad. Şehit Hakan Turan Sok.No:1/B Keçiören / ANKARA  Urfa balıklı göl lokantası yanı                            03123813505",
+          "latitude": 39.997469436717,
+          "longitude": 32.862043976784
         }
       ],
-      "Sincan": [
+      "Altındağ": [
         {
-          "isim": "BUCUK  ECZANESİ",
-          "adres": "Fevzi Çakmak Mah. Kazım Karabekir Cad. A12 Blok No:14 Yenikent /Sincan/ ANKARA  Bucuk Cami Karşısı                            03122773410",
-          "latitude": 40.012430614022,
-          "longitude": 32.515733242035
-        },
-        {
-          "isim": "OYTUN ECZANESİ",
-          "adres": "Mareşal Çakmak Mah. Zafer Sok. No:16/A-B Sincan/ANKARA 1 ve 9 Nolu ASM karşısı                            03122704141",
-          "latitude": 39.957308506471,
-          "longitude": 32.58857935667
-        },
-        {
-          "isim": "BİRGÜL ECZANESİ",
-          "adres": "Pınarbaşı Mah.Mesai Cad. No:4/A Sincan/ ANKARA 12.Cd.Tercih Mağazası arka tarafı                            05015277704",
-          "latitude": 39.951647143964,
-          "longitude": 32.576544284821
-        },
-        {
-          "isim": "VERESELİ TEMELLİ ECZANESİ",
-          "adres": "TEMELLİ-İstiklal Mah. Hürriyet Cad. No:30/B Temelli/Sincan/ANKARA                             03126451163",
-          "latitude": 39.726069000019,
-          "longitude": 32.353835105896
-        },
-        {
-          "isim": "BARIŞ ECZANESİ",
-          "adres": "Gökçek Mah. 360.Sokak No:14/BD Törekent/ Sincan/ ANKARA (3122670893) Sincan Eğt.Araş.Has.Karşısı                            05355855470",
-          "latitude": 39.983826473061,
-          "longitude": 32.570350089482
+          "isim": "BALIK ECZANESİ",
+          "adres": "Güneşevler Mah.126. Sokak No:9/A Altındağ/ANKARA                             03123161003",
+          "latitude": 39.971179793159,
+          "longitude": 32.885475754738
         }
       ],
       "Ayaş": [
         {
-          "isim": "GÖKÇE  ECZANESİ",
-          "adres": "Camiatik Mah. Hekim Şaban Şifai Cad. No:3 Ayaş / ANKARA                              03127121159",
-          "latitude": 40.012890779526,
-          "longitude": 32.331390380859
+          "isim": "ÇALIŞKAN ECZANESİ",
+          "adres": "Camiatik Mah. Banka Sok. No:7/B Ayaş/ ANKARA                             03127121829",
+          "latitude": 40.018675452628,
+          "longitude": 32.331047058105
         }
       ],
-      "Akyurt": [
+      "Sincan": [
         {
-          "isim": "YEŞİLTEPE ANADOLU ECZANESİ",
-          "adres": "Yeşiltepe Mah. Mezbaha Cad. No:8/B Akyurt/ ANKARA Yeni Devlet Hastanesi Karşısı                            05510780096",
-          "latitude": 40.137953905636,
-          "longitude": 33.088811673224
-        }
-      ],
-      "Beypazarı": [
-        {
-          "isim": "DOĞAN ECZANESİ",
-          "adres": "Zafer Mah. Milli Egemenlik Cad. No:108/A Beypazarı / ANKARA  Beypazarı İlçe Sağlık Müdürlüğü Karşısı                            03127623703",
-          "latitude": 40.164428319024,
-          "longitude": 31.917493343353
-        }
-      ],
-      "Etimesgut": [
-        {
-          "isim": "DEVLET ECZANESİ",
-          "adres": "Atakent Mah. 1469 Sok No:15/A Elvankent/Etimesgut/ ANKARA  Elvankent Sağlık Ocağı karşısı                            03122605107",
-          "latitude": 39.956727690962,
-          "longitude": 32.612157580224
+          "isim": "ÇAĞLAR ECZANESİ",
+          "adres": "Andiçen Mah. Ahi Mesut Bulvarı No:214/B Sincan/ ANKARA 12.Cad.Kadın Doğ.Çoc.Acil kapı kar.                            03127636480",
+          "latitude": 39.95025511925,
+          "longitude": 32.586071491241
         },
         {
-          "isim": "CEVAHİR ECZANESİ",
-          "adres": "Ahi Mesut Mah. 1904.Sok.İrem Çarşısı No:11/C-10 Etimesgut/ ANKARA Kelebeksu Parkı arkası                            03122260556",
-          "latitude": 39.936000143111,
-          "longitude": 32.637079978266
-        },
-        {
-          "isim": "SERPİLİN ECZANESİ",
-          "adres": "Fatih Sultan Mah. Üniversite Cad. C Blok No:44/15 Etimesgut/ANKARA Arsia İş Merkezi Migros'un yanı                            05441607757",
-          "latitude": 39.883773038886,
-          "longitude": 32.655825018883
-        },
-        {
-          "isim": "LOKMAN HEKİM ECZANESİ",
-          "adres": "Tunahan Mah. 208.Sok. No:4/D Eryaman-Etimesgut/ ANKARA 4.Etap Çarşısı                            03122834646",
-          "latitude": 39.9890443705,
-          "longitude": 32.623794078827
-        }
-      ],
-      "Haymana": [
-        {
-          "isim": "ALP ECZANESİ",
-          "adres": "Yeni Mah. Ankara Cad.Özkanlar Sitesi No:57/C-B Haymana/ ANKARA                             03126580903",
-          "latitude": 39.440599061937,
-          "longitude": 32.505424171686
-        }
-      ],
-      "Diğer": [
-        {
-          "isim": "DEVALAR ECZANESİ",
-          "adres": "Atatürk Mah. Osmanlı Cad. No:78/B Kahramankazan/ ANKARA Yeni Devlet Hastanesi yanı                            05441760237",
-          "latitude": 40.198711724363,
-          "longitude": 32.673718035221
-        },
-        {
-          "isim": "MÜFTÜOĞLU ECZANESİ",
-          "adres": "Lalahan Mah.Lalapaşa Cad.3/B Lalahan/ / ANKARA ((312865 18 85) “ÖZEL NÖBET BÖLGESİ LÜTFEN ECZANEYİ TELEFON İLE ARAYİNİZ.\"                            05408651885",
-          "latitude": 39.970676179525,
-          "longitude": 33.114105784334
-        }
-      ],
-      "Kızılcahamam": [
-        {
-          "isim": "ERDOĞAN ECZANESİ",
-          "adres": "Akçay Mah. Hacı Hasan Cad. No:24/C-D Kızılcahamam/ ANKARA Kızılcahamam Sağlık Ocağı karşısı                            03127363949",
-          "latitude": 40.473636307818,
-          "longitude": 32.64602959156
-        }
-      ],
-      "Nallıhan": [
-        {
-          "isim": "TAYFUN TANER ECZANESİ",
-          "adres": "Ali Ağa Mah. Bursa Cad. No:8 Nallıhan / ANKARA                              03127856000",
-          "latitude": 40.191463038041,
-          "longitude": 31.338500976562
+          "isim": "BEYZA ECZANESİ",
+          "adres": "Gökçek Mah. 362. Sok. No:5/G\nFatih/ Sincan/ ANKARA SincanDev.Hast.Polk.Kapısı300mt ileri                            05550451551",
+          "latitude": 39.983807976458,
+          "longitude": 32.570654153824
         }
       ],
       "Polatlı": [
         {
-          "isim": "KONAK ECZANESİ",
-          "adres": "Fatih Mah. Atatürk Cad. No:169/C Polatlı/ANKARA                              03126231742",
-          "latitude": 39.579149134414,
-          "longitude": 32.132306098938
+          "isim": "ŞEYDA ECZANESİ",
+          "adres": "Atatürk Mah. Polatlı 2 Cad. No:44/A Sincan / ANKARA  Lokman Hekim Hast.karşısı                            03122719995",
+          "latitude": 39.956941513882,
+          "longitude": 32.582777738571
+        },
+        {
+          "isim": "ANITTEPE ECZANESİ",
+          "adres": "Cumhuriyet Mah. Yavuz Selim Cad. No:77/A Polatlı/ANKARA Büyük Kayaları geçince solda                             03126229984",
+          "latitude": 39.58036469593,
+          "longitude": 32.140899896622
+        }
+      ],
+      "Akyurt": [
+        {
+          "isim": "AKYURT OKAN ECZANESİ",
+          "adres": "Yeşiltepe Mh.Çubuk Cad.No:8/C Akyurt/ ANKARA Yeni Devlet Hastanesi Karşısı                            03128442688",
+          "latitude": 40.135569092537,
+          "longitude": 33.084977790713
+        }
+      ],
+      "Etimesgut": [
+        {
+          "isim": "ASLI DİNÇER ECZANESİ",
+          "adres": "Topçu Mah. 1521. Cad. No:8/A  Elvankent/ Etimesgut/ ANKARA Topçu Çarşamba pazarı yakını                            03122602145",
+          "latitude": 39.952535393082,
+          "longitude": 32.616569914899
+        },
+        {
+          "isim": "PAPATYA ECZANESİ",
+          "adres": "Bağlıca Mah. Mermeroğlu Cad. No:67/1C Bağlıca Etimesgut/ANKARA A-101 Market yanı                            03125122234",
+          "latitude": 39.885698443426,
+          "longitude": 32.62879364047
+        },
+        {
+          "isim": "ÇETİNKAYA ECZANESİ",
+          "adres": "İstasyon Mah. Bağlıca Cd. No:4B-C Etimesgut / ANKARA  Devlet Hastanesi 2 alt sok. As Pide Çaprazı                            05071226077",
+          "latitude": 39.946897282794,
+          "longitude": 32.667422890663
+        },
+        {
+          "isim": "BAHÇEN ERYAMAN ECZANESİ",
+          "adres": "Şeker Mah. Şehit Mehmet Çavuş Cad. No:4J/5 Eryaman/ Etimesgut/ ANKARA Çağdaş Market yanı                            03129798906",
+          "latitude": 39.969282486533,
+          "longitude": 32.652244269848
+        },
+        {
+          "isim": "GÖZÜTOK ECZANESİ",
+          "adres": "Bahçekapı Mah. 2500.Cad. No.32 Şaşmaz- Etimesgut/ ANKARA  (Batıkent)  Özel Bilgi Hast.1.7 km yakınındadır.                            05075335231",
+          "latitude": 39.941571288676,
+          "longitude": 32.718842178583
+        }
+      ],
+      "Haymana": [
+        {
+          "isim": "ILGIN ECZANESİ",
+          "adres": "Seyran Mh.Küçük San. Sit. Yapı Koop. Çarşısı Dükkan No:1/A Haymana/ANKARA                             03126581189",
+          "latitude": 39.434825758205,
+          "longitude": 32.497365474701
+        }
+      ],
+      "Diğer": [
+        {
+          "isim": "SEVGİ ECZANESİ",
+          "adres": "Satıkadın Mah. Ankara Bulvarı No:100/B   Kahramankazan/ANKARA                             03128000015",
+          "latitude": 40.21089629349,
+          "longitude": 32.682028757772
+        },
+        {
+          "isim": "ZEYNEP ULUCAN ECZANESİ",
+          "adres": "Karşıyaka Mah. Cumhuriyet Cad. No:3 Lalahan/  ANKARA (Sağlık Ocağı yanı) “ÖZEL NÖBET BÖLGESİ.  LÜTFEN ECZANEYİ TELEFON İLE ARAYİNİZ.\"                            05010793360",
+          "latitude": 39.964030187577,
+          "longitude": 33.107439279556
+        }
+      ],
+      "Kızılcahamam": [
+        {
+          "isim": "TOZOĞLU ECZANESİ",
+          "adres": "Akçay Mah. Cengiz Topel Cad. No:27/B Kızılcahamam/ ANKARA Adalet Sarayı Karşısı                            03127361550",
+          "latitude": 40.47263447914,
+          "longitude": 32.648341167551
+        }
+      ],
+      "Nallıhan": [
+        {
+          "isim": "UĞUR ECZANESİ",
+          "adres": "Yazı Mah. Ankara Cad. No:2 Nallıhan / ANKARA                              03127853536",
+          "latitude": 40.178873314347,
+          "longitude": 31.343994140625
+        }
+      ],
+      "Pursaklar": [
+        {
+          "isim": "SIHHAT ECZANESİ",
+          "adres": "Merkez Mah. Yenişehir Sok. No:18/11 Pursaklar/ANKARA Farabi Sağlık Ocağı karşısı                            03123282902",
+          "latitude": 40.036691895178,
+          "longitude": 32.892690896988
         }
       ],
       "Şereflikoçhisar": [
         {
-          "isim": "MERAL UZUNÖZ  ECZANESİ",
-          "adres": "Yeni Mah. İsmetpaşa Cad. No:2 Şereflikoçhisar/ANKARA                             03126876218",
-          "latitude": 38.938855772901,
-          "longitude": 33.543542325497
+          "isim": "FETİH ECZANESİ",
+          "adres": "Sarıkaya Mah. Ankara Cad. No:181/B Şereflikoçhisar/ ANKARA                             03126863636",
+          "latitude": 38.935756553968,
+          "longitude": 33.547614589334
         }
       ],
       "Kalecik": [
         {
-          "isim": "SAĞLIK ECZANESİ",
-          "adres": "Halit Cevri Aslangil Mah. Çağlar Cad. No:20.Sok. No:12/B Kalecik/ ANKARA  Kalecik Devlet Hastanesi Karşısı                            03128571110",
-          "latitude": 40.111110189041,
-          "longitude": 33.409390577835
+          "isim": "YENİ AYŞEM ECZANESİ",
+          "adres": "Halit Cevri Aslangil Mah.20. Sok.No:14/C Kalecik/ANKARA                              03128570859",
+          "latitude": 40.097114480436,
+          "longitude": 33.408908843994
+        }
+      ],
+      "Gölbaşı": [
+        {
+          "isim": "VİSTA ECZANESİ",
+          "adres": "Kızılcaşar Mh. Şeh.Savcı Mehmet Selim Kiraz Bulv.Kızılcaşar Küme Evleri Vista AVM No:406/11 İncek/ Gölbaşı/ANKARA                             05525809020",
+          "latitude": 39.830338232113,
+          "longitude": 32.73503869772
+        }
+      ],
+      "Çubuk": [
+        {
+          "isim": "DUYGU ECZANESİ",
+          "adres": "Yıldırım Beyazıt Mah. İzzet Begoviç Cad.No:95/A Çubuk /ANKARA İlçe Jandarma Kom.Karş.-6 Nolu ASM yanı                            03128377250",
+          "latitude": 40.220652305906,
+          "longitude": 33.039617612958
         }
       ],
       "Güdül": [
         {
-          "isim": "VERESELİ GÜDÜL ECZANESİ",
-          "adres": "Yukarı Gençlik Cad. No:10/A Güdül / ANKARA                             03127281533",
-          "latitude": 40.20877009282,
-          "longitude": 32.244186401367
+          "isim": "ARINMIŞ ECZANESİ",
+          "adres": "Yukarı Mah. Leblebici Sok.No:19 Güdül/ ANKARA                             05301178589",
+          "latitude": 40.210531690119,
+          "longitude": 32.242609262466
         }
       ],
       "Bala": [
         {
-          "isim": "YENİ BALA ECZANESİ",
-          "adres": "Kartaltepe Mah. Alparslan Türkeş Bulvarı No:4 Bala/ ANKARA                             03128761376",
-          "latitude": 39.552947363191,
-          "longitude": 33.123903349042
+          "isim": "BÜŞRA YALÇIN ECZANESİ",
+          "adres": "Kartaltepe Mah.Alparslan Türkeş Bulvarı No:38/D Bala/ANKARA                             03128190908",
+          "latitude": 39.549876195051,
+          "longitude": 33.124688901007
         }
       ],
       "Elmadağ": [
@@ -322,20 +290,6 @@
           "adres": "Menderes Bulvarı Sağlık 1. Sok. No:2 Hasanoğlan /Elmadağ/ ANKARA (2.Tel:3128661233)                             03128663771",
           "latitude": 39.998689957679,
           "longitude": 33.180084228516
-        },
-        {
-          "isim": "DAMLA SU ECZANESİ",
-          "adres": "Kemalpaşa Mah.Cumhuriyet Cad. Soğukpınar Sok. No:4 Elmadağ/ANKARA                              03128633222",
-          "latitude": 39.915200483975,
-          "longitude": 33.236861228943
-        }
-      ],
-      "Pursaklar": [
-        {
-          "isim": "DOĞA GÜNEŞ ECZANESİ",
-          "adres": "Fatih Mah. Hüsrev Sok. No:2/A Pursaklar/ANKARA A Life Hastanesi Karşısı                            03123282808",
-          "latitude": 40.043409873426,
-          "longitude": 32.906814068556
         }
       ]
     }

@@ -195,47 +195,115 @@ export default function PanelComponent({
                                         key={index}
                                         onClick={() => setSecilenEczane(eczane)}
                                         style={{
-                                            background: isSelected ? '#e3f2fd' : '#fff',
-                                            borderRadius: '10px',
-                                            padding: isMobile ? '8px' : '10px',
-                                            marginBottom: isMobile ? '8px' : '10px',
-                                            boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                                            marginBottom: isMobile ? '12px' : '16px',
+                                            background: isSelected ? '#f0f7ff' : '#fff',
+                                            borderRadius: '12px',
+                                            padding: isMobile ? '12px' : '14px',
+                                            boxShadow: isSelected ? '0 4px 12px rgba(0, 122, 255, 0.15)' : '0 2px 8px rgba(0,0,0,0.08)',
                                             cursor: 'pointer',
-                                            border: isSelected ? '2px solid #007AFF' : 'none',
+                                            border: isSelected ? '1px solid #007AFF' : '1px solid #eee',
                                             transition: 'all 0.2s ease'
                                         }}>
-                                        <strong style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#333' }}>{eczane.isim}</strong><br />
-                                        <span style={{ fontSize: 'clamp(12px, 2vw, 14px)', color: '#666' }}>{eczane.adres}</span><br />
-                                        <span style={{ fontSize: 'clamp(11px, 1.8vw, 12px)', color: '#888' }}>{eczane.mesafe.toFixed(2)} km yakınınızda</span>
+                                        {/* Header: Adı ve Yıldız */}
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                                            <div style={{ flex: 1 }}>
+                                                <strong style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#222', display: 'block' }}>
+                                                    {eczane.isim}
+                                                </strong>
+                                            </div>
+                                            <span style={{ fontSize: '13px', color: '#666', fontWeight: '500', backgroundColor: '#f5f5f5', padding: '4px 8px', borderRadius: '6px' }}>
+                                                Açık
+                                            </span>
+                                        </div>
 
-                                        {/* Rota bilgisini göster */}
+                                        {/* Tür ve Adres */}
+                                        <div style={{ marginBottom: '8px' }}>
+                                            <span style={{ fontSize: 'clamp(11px, 1.6vw, 12px)', color: '#999' }}>
+                                                💊 Nöbetçi Eczane
+                                            </span>
+                                            <p style={{ fontSize: 'clamp(12px, 1.8vw, 13px)', color: '#666', margin: '4px 0', lineHeight: '1.4' }}>
+                                                📍 {eczane.adres}
+                                            </p>
+                                        </div>
+
+                                        {/* Telefon ve Mesafe */}
+                                        <div style={{ display: 'flex', gap: '12px', marginBottom: '10px', fontSize: 'clamp(11px, 1.6vw, 12px)', color: '#666' }}>
+                                            <span>📞 +90 (555) 123-4567</span>
+                                            <span>•</span>
+                                            <span>📏 {eczane.mesafe.toFixed(2)} km</span>
+                                        </div>
+
+                                        {/* Rota Bilgisi */}
                                         {isSelected && rotaBilgisi && (
                                             <div style={{
-                                                marginTop: '8px',
-                                                paddingTop: '8px',
-                                                borderTop: '1px solid #ddd',
+                                                marginBottom: '10px',
+                                                paddingBottom: '10px',
+                                                borderBottom: '1px solid #eee',
                                                 display: 'flex',
-                                                gap: '16px',
-                                                justifyContent: 'space-around'
+                                                gap: '12px',
                                             }}>
-                                                <div style={{ textAlign: 'center' }}>
-                                                    <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                                <div style={{ flex: 1, backgroundColor: '#f9f9f9', padding: '8px', borderRadius: '8px', textAlign: 'center' }}>
+                                                    <div style={{ fontSize: 'clamp(12px, 1.8vw, 13px)', fontWeight: 'bold', color: '#007AFF' }}>
                                                         {rotaBilgisi.minutes} dk
                                                     </div>
                                                     <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Rota süresi</div>
                                                 </div>
-                                                <div style={{ textAlign: 'center' }}>
-                                                    <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                                <div style={{ flex: 1, backgroundColor: '#f9f9f9', padding: '8px', borderRadius: '8px', textAlign: 'center' }}>
+                                                    <div style={{ fontSize: 'clamp(12px, 1.8vw, 13px)', fontWeight: 'bold', color: '#007AFF' }}>
                                                         {rotaBilgisi.distance} km
                                                     </div>
-                                                    <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Yol mesafesi</div>
+                                                    <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Mesafe</div>
                                                 </div>
                                             </div>
                                         )}
 
-                                        <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline', fontSize: 'clamp(12px, 2vw, 14px)' }}>
-                                            Yol Tarifi Al
-                                        </a>
+                                        {/* Butonlar */}
+                                        <div style={{ display: 'flex', gap: '8px' }}>
+                                            <a
+                                                href={`tel:+905551234567`}
+                                                style={{
+                                                    flex: 1,
+                                                    padding: '8px 12px',
+                                                    backgroundColor: '#f0f0f0',
+                                                    border: 'none',
+                                                    borderRadius: '8px',
+                                                    fontSize: 'clamp(11px, 1.6vw, 12px)',
+                                                    fontWeight: '600',
+                                                    color: '#333',
+                                                    textDecoration: 'none',
+                                                    textAlign: 'center',
+                                                    cursor: 'pointer',
+                                                    transition: 'all 0.2s'
+                                                }}
+                                                onMouseEnter={(e) => e.target.style.backgroundColor = '#e0e0e0'}
+                                                onMouseLeave={(e) => e.target.style.backgroundColor = '#f0f0f0'}
+                                            >
+                                                📞 Ara
+                                            </a>
+                                            <a
+                                                href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                style={{
+                                                    flex: 1,
+                                                    padding: '8px 12px',
+                                                    backgroundColor: '#007AFF',
+                                                    border: 'none',
+                                                    borderRadius: '8px',
+                                                    fontSize: 'clamp(11px, 1.6vw, 12px)',
+                                                    fontWeight: '600',
+                                                    color: '#fff',
+                                                    textDecoration: 'none',
+                                                    textAlign: 'center',
+                                                    cursor: 'pointer',
+                                                    transition: 'all 0.2s'
+                                                }}
+                                                onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
+                                                onMouseLeave={(e) => e.target.style.backgroundColor = '#007AFF'}
+                                            >
+                                                🛣️ Yol Tarifi
+                                            </a>
+                                        </div>
                                     </div>
                                 );
                             })}
@@ -250,45 +318,115 @@ export default function PanelComponent({
                                 key={index}
                                 onClick={() => setSecilenEczane(eczane)}
                                 style={{
-                                    marginBottom: isMobile ? '8px' : '15px',
-                                    background: isSelected ? '#e3f2fd' : '#fff',
-                                    borderRadius: '10px',
-                                    padding: isMobile ? '8px' : '10px',
-                                    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                                    marginBottom: isMobile ? '12px' : '16px',
+                                    background: isSelected ? '#f0f7ff' : '#fff',
+                                    borderRadius: '12px',
+                                    padding: isMobile ? '12px' : '14px',
+                                    boxShadow: isSelected ? '0 4px 12px rgba(0, 122, 255, 0.15)' : '0 2px 8px rgba(0,0,0,0.08)',
                                     cursor: 'pointer',
-                                    border: isSelected ? '2px solid #007AFF' : 'none',
+                                    border: isSelected ? '1px solid #007AFF' : '1px solid #eee',
                                     transition: 'all 0.2s ease'
                                 }}>
-                                <strong style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#333' }}>{eczane.isim}</strong><br />
-                                <span style={{ fontSize: 'clamp(12px, 2vw, 14px)', color: '#666' }}>{eczane.adres}</span>
+                                {/* Header: Adı ve Yıldız */}
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                                    <div style={{ flex: 1 }}>
+                                        <strong style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#222', display: 'block' }}>
+                                            {eczane.isim}
+                                        </strong>
+                                    </div>
+                                    <span style={{ fontSize: '13px', color: '#666', fontWeight: '500', backgroundColor: '#f5f5f5', padding: '4px 8px', borderRadius: '6px' }}>
+                                        Açık
+                                    </span>
+                                </div>
 
-                                {/* Rota bilgisini göster */}
+                                {/* Tür ve Adres */}
+                                <div style={{ marginBottom: '8px' }}>
+                                    <span style={{ fontSize: 'clamp(11px, 1.6vw, 12px)', color: '#999' }}>
+                                        💊 Eczane
+                                    </span>
+                                    <p style={{ fontSize: 'clamp(12px, 1.8vw, 13px)', color: '#666', margin: '4px 0', lineHeight: '1.4' }}>
+                                        📍 {eczane.adres}
+                                    </p>
+                                </div>
+
+                                {/* Telefon ve Mesafe */}
+                                <div style={{ display: 'flex', gap: '12px', marginBottom: '10px', fontSize: 'clamp(11px, 1.6vw, 12px)', color: '#666' }}>
+                                    <span>📞 +90 (555) 123-4567</span>
+                                    <span>•</span>
+                                    <span>🏪 10 - 21:00</span>
+                                </div>
+
+                                {/* Rota Bilgisi */}
                                 {isSelected && rotaBilgisi && (
                                     <div style={{
-                                        marginTop: '8px',
-                                        paddingTop: '8px',
-                                        borderTop: '1px solid #ddd',
+                                        marginBottom: '10px',
+                                        paddingBottom: '10px',
+                                        borderBottom: '1px solid #eee',
                                         display: 'flex',
-                                        gap: '16px',
-                                        justifyContent: 'space-around'
+                                        gap: '12px',
                                     }}>
-                                        <div style={{ textAlign: 'center' }}>
-                                            <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                        <div style={{ flex: 1, backgroundColor: '#f9f9f9', padding: '8px', borderRadius: '8px', textAlign: 'center' }}>
+                                            <div style={{ fontSize: 'clamp(12px, 1.8vw, 13px)', fontWeight: 'bold', color: '#007AFF' }}>
                                                 {rotaBilgisi.minutes} dk
                                             </div>
                                             <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Rota süresi</div>
                                         </div>
-                                        <div style={{ textAlign: 'center' }}>
-                                            <div style={{ fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 'bold', color: '#007AFF' }}>
+                                        <div style={{ flex: 1, backgroundColor: '#f9f9f9', padding: '8px', borderRadius: '8px', textAlign: 'center' }}>
+                                            <div style={{ fontSize: 'clamp(12px, 1.8vw, 13px)', fontWeight: 'bold', color: '#007AFF' }}>
                                                 {rotaBilgisi.distance} km
                                             </div>
-                                            <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Yol mesafesi</div>
+                                            <div style={{ fontSize: 'clamp(10px, 1.5vw, 11px)', color: '#888', marginTop: '2px' }}>Mesafe</div>
                                         </div>
                                     </div>
-                                )}<br />
-                                <a href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(12px, 2vw, 14px)', color: '#0070f3', textDecoration: 'underline' }}>
-                                    Yol Tarifi Al
-                                </a>
+                                )}
+
+                                {/* Butonlar */}
+                                <div style={{ display: 'flex', gap: '8px' }}>
+                                    <a
+                                        href={`tel:+905551234567`}
+                                        style={{
+                                            flex: 1,
+                                            padding: '8px 12px',
+                                            backgroundColor: '#f0f0f0',
+                                            border: 'none',
+                                            borderRadius: '8px',
+                                            fontSize: 'clamp(11px, 1.6vw, 12px)',
+                                            fontWeight: '600',
+                                            color: '#333',
+                                            textDecoration: 'none',
+                                            textAlign: 'center',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.2s'
+                                        }}
+                                        onMouseEnter={(e) => e.target.style.backgroundColor = '#e0e0e0'}
+                                        onMouseLeave={(e) => e.target.style.backgroundColor = '#f0f0f0'}
+                                    >
+                                        📞 Ara
+                                    </a>
+                                    <a
+                                        href={`https://www.google.com/maps/dir/?api=1&destination=${eczane.latitude},${eczane.longitude}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            flex: 1,
+                                            padding: '8px 12px',
+                                            backgroundColor: '#007AFF',
+                                            border: 'none',
+                                            borderRadius: '8px',
+                                            fontSize: 'clamp(11px, 1.6vw, 12px)',
+                                            fontWeight: '600',
+                                            color: '#fff',
+                                            textDecoration: 'none',
+                                            textAlign: 'center',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.2s'
+                                        }}
+                                        onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
+                                        onMouseLeave={(e) => e.target.style.backgroundColor = '#007AFF'}
+                                    >
+                                        🛣️ Yol Tarifi
+                                    </a>
+                                </div>
                             </div>
                         );
                     })}
