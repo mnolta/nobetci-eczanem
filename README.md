@@ -296,40 +296,93 @@ const CACHE_TTL = 12 * 60 * 60 * 1000;  // 12 saat
 await page.goto('https://www.aeo.org.tr/nobetci-eczaneler', {
   // ↑ Bu URL'i değiştirebilirsiniz
 });
+# Nöbetçi Eczane Bulucu
+
+Bu repo, kullanıcılara Ankara içindeki nöbetçi eczaneleri harita ve liste şeklinde gösterir. Uygulama hem kullanıcı tarafında `/api/crawl` API'sini kullanır hem de repository içine commit edilen statik `public/eczaneler.json` dosyasını okuyarak hata/fallback durumunda hizmet verir.
+
+## Hızlı başlangıç
+
+1. Node paketlerini yükleyin:
+
+```bash
+npm install
 ```
 
-Yeni URL'de veri yapısı farklıysa, HTML parsing logic'ini (h4, p, regex) güncelle.
+2. Geliştirme sunucusunu başlatın:
 
-### Cron job zamanlarını değiştirmek
-
-`vercel.json` içinde:
-```json
-"schedule": "0 18 * * *"  // Cron format (UTC)
-// 0 18 * * * = Her gün 18:00 UTC
-// 0 */6 * * * = Her 6 saatte bir
+```bash
+npm run dev
 ```
 
-[Cron syntax referans](https://crontab.guru/)
+3. Tarayıcıda açın: http://localhost:3000
+
+Not: `scripts/fetchEczaneler.js` ile yerel olarak `public/eczaneler.json` dosyasını oluşturabilirsiniz (aşağıda nasıl çalıştığı anlatılıyor).
+
+## Değişiklik özeti (yeni)
+
+- Puppeteer tabanlı scraping kaldırıldı (serverless ortamlar için kırılgandı).
+- Veriler artık doğrudan sitenin sunduğu HTML parçası üzerinden çekiliyor: `https://www.aeo.org.tr/getPharmacies/<YYYY-MM-DD>`.
+- HTML parse işlemi için Cheerio kullanılıyor (server-side, hafif).
+- `scripts/fetchEczaneler.js` ile günlük otomatik güncelleme sağlanıyor ve bu script GitHub Actions ile zamanlanarak `public/eczaneler.json` dosyasını güncelliyor.
+
+## Veri kaynağı & parsing
+
+- API endpoint: `https://www.aeo.org.tr/getPharmacies/<YYYY-MM-DD>` → çoğunlukla JSON içinde `html` alanı veya doğrudan HTML fragment döner.
+- `pages/api/crawl.js` bu HTML'i Cheerio ile parse eder, `.inline-box` öğelerinden eczane isim, adres, telefon (varsa) ve Google Maps linklerinden koordinatları alır.
+- Sonuç, yapılandırılmış bir obje olarak `Ankara` → `ilçe` → [eczaneler] şeklinde döner.
+
+## Cache davranışı
+
+- Cache dosyaları: `public/eczaneler-cache.json` (runtime cache) ve `public/eczaneler.json` (statik snapshot).
+- Uygulama `lib/cache.js` içindeki helper'larla cache kontrolü yapar. (Mevcut TTL: 12 saat.)
+- `GET /api/crawl` çağrısı:
+  - Eğer cache geçerliyse (TTL içinde) cache döner (fromCache: true).
+  - Aksi hâlde canlı fetch/parsing yapılır; başarı halinde cache güncellenir ve `fromCache: false` döndürülür.
+  - Hata durumunda mevcut cache varsa fallback olarak döner; cache yoksa 500 döner.
+
+## Otomasyon (GitHub Actions)
+
+Bir workflow eklendi: `.github/workflows/update-eczaneler.yml`
+
+- Zamanlama: cron ile günlük iki kez (06:00 ve 16:00 UTC).
+- Yapacağı iş: `node scripts/fetchEczaneler.js` çalıştırır, `public/eczaneler.json` değiştiyse commit edip push'lar.
+
+Bu yaklaşım, Vercel'e yapılan deploy'lar aracılığıyla statik JSON'ın güncel kalmasını sağlar (Vercel genelde `main` merge/push'ta deploy eder).
+
+## Nasıl manuel çalıştırılır / test edilir
+
+- Lokal fetch script'i çalıştırıp dosya oluşturmak:
+
+```bash
+node scripts/fetchEczaneler.js
+# → public/eczaneler.json dosyası oluşturulur/güncellenir
+```
+
+- API'yi test etmek (dev server çalışırken):
+
+```bash
+curl http://localhost:3000/api/crawl?force=true | jq '.'
+```
+
+## PR / Deploy süreci
+
+- Değişiklikler `update/fetch-automation` branch'inde hazırlandı ve bir PR oluşturuldu: https://github.com/mnolta/nobetci-eczanem/pull/4
+- PR'ı merge ettiğinizde Vercel otomatik olarak yeni commit'i derleyip deploy edecektir (Vercel ayarlarınıza bağlı olarak). Merge sonrası üretimde `GET /api/crawl` veya site üzerindeki liste güncel olmalıdır.
+
+## Troubleshooting (yaygın sorunlar)
+
+- Eğer `/api/crawl` canlı veriyi alamıyorsa:
+  1. `public/eczaneler-cache.json` dosyasını kontrol edin.
+  2. Manuel fetch çalıştırın: `node scripts/fetchEczaneler.js`.
+  3. Hala sorun varsa, deploy loglarını (Vercel) veya GitHub Actions loglarını kontrol edin.
+
+- Eğer site farklı bir HTML döndürürse, parsing selector'larını `pages/api/crawl.js` ve `scripts/fetchEczaneler.js` içinde güncellemeniz gerekir.
+
+## Geliştirici notları
+
+- `.next/` içeriği working tree'de görünüyorsa localde build sırasında oluşmuştur; bunlar commitleme dışı bırakılmalıdır (varsayılan `.gitignore` zaten `.next/` içerir).
+- Workflow şu an sadece zamanlanmış ve manuel (workflow_dispatch) tetiklenir. İsterseniz `on: push` veya `on: pull_request` gibi tetikleyiciler ekleyebilirim.
 
 ---
 
-## 🐛 Debug
-
-Cache dosyasını kontrol et:
-```bash
-cat public/eczaneler-cache.json | python3 -m json.tool
-```
-
-Cache'i sil ve yeniden oluştur:
-```bash
-rm public/eczaneler-cache.json
-curl http://localhost:3000/api/crawl?force=true
-```
-
----
-
-## Katkıda Bulunmak
-
-Projeye katkıda bulunmak ister misiniz? Harika! 🎉
-Başlamadan önce lütfen [CONTRIBUTING.md](./CONTRIBUTING.md) dosyasını okuyun.
-Orada, doğru katkıda bulunma adımlarını ve kod düzeni kurallarımızı bulabilirsiniz.
+Katkı veya başka bir değişiklik isterseniz bana söyleyin — PR'ı merge edeyim ve deploy sonrası prod doğrulaması yapabilirim.

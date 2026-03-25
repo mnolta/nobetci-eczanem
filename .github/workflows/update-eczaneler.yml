@@ -1,9 +1,9 @@
 name: Update eczaneler.json
 
 on:
-  schedule:
-    - cron: '0 6 * * *'   # every day at 06:00 UTC (adjust as needed)
-    - cron: '0 16 * * *'  # every day at 16:00 UTC (matches vercel.json crons)
+  # Scheduled runs disabled because upstream blocks requests from GitHub Actions runners
+  # (requests were returning 403). Use the Vercel production cron instead. Keep a
+  # manual dispatch so you can run this workflow on-demand if needed.
   workflow_dispatch: {}
 
 jobs:

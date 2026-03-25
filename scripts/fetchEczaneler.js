@@ -2,6 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
+const crypto = require('crypto');
 
 async function fetchWithRetry(url, opts = {}, attempts = 3) {
   const delays = [200, 800, 2000];
@@ -23,7 +24,29 @@ async function fetchEczaneler() {
     const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
     const url = `https://www.aeo.org.tr/getPharmacies/${today}`;
 
-    const res = await fetchWithRetry(url, {
+    // Build proxy-aware target URL if environment variables are provided.
+    function buildProxyUrl(originalUrl) {
+      const scraperKey = process.env.SCRAPERAPI_KEY;
+      const scrapingbeeKey = process.env.SCRAPINGBEE_KEY;
+      const proxyUrl = process.env.PROXY_URL; // custom proxy endpoint
+
+      if (scraperKey) {
+        return `http://api.scraperapi.com?api_key=${scraperKey}&url=${encodeURIComponent(originalUrl)}`;
+      }
+      if (scrapingbeeKey) {
+        return `https://app.scrapingbee.com/api/v1?api_key=${scrapingbeeKey}&url=${encodeURIComponent(originalUrl)}&render_js=false`;
+      }
+      if (proxyUrl) {
+        if (proxyUrl.includes('{url}')) return proxyUrl.replace('{url}', encodeURIComponent(originalUrl));
+        const sep = proxyUrl.includes('?') ? '&' : '?';
+        return `${proxyUrl}${sep}url=${encodeURIComponent(originalUrl)}`;
+      }
+      return originalUrl;
+    }
+
+    const targetUrl = buildProxyUrl(url);
+
+    const res = await fetchWithRetry(targetUrl, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         'Accept': 'application/json, text/html, */*',
@@ -75,8 +98,25 @@ async function fetchEczaneler() {
     const filePath = path.join(__dirname, '..', 'public', 'eczaneler.json');
 
     // JSON dosyasına kaydet
-    fs.writeFileSync(filePath, JSON.stringify(ilIlceMap, null, 2), 'utf-8');
-    console.log(`✅ Veriler ${filePath} dosyasına kaydedildi.`);
+    const jsonString = JSON.stringify(ilIlceMap, null, 2);
+    fs.writeFileSync(filePath, jsonString, 'utf-8');
+
+    // metadata: timestamp + checksum
+    const checksum = 'sha256:' + crypto.createHash('sha256').update(jsonString).digest('hex');
+    const meta = {
+      generatedAt: new Date().toISOString(),
+      source: url,
+      fetchedVia: targetUrl === url ? 'direct' : (process.env.SCRAPERAPI_KEY ? 'scraperapi' : process.env.SCRAPINGBEE_KEY ? 'scrapingbee' : 'proxy'),
+      checksum
+    };
+    const metaPath = path.join(__dirname, '..', 'public', 'eczaneler-meta.json');
+    try {
+      fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2), 'utf-8');
+    } catch (e) {
+      console.warn('Meta yazılamadı:', e.message);
+    }
+
+    console.log(`✅ Veriler ${filePath} dosyasına kaydedildi. (meta: ${meta.generatedAt}, ${meta.checksum})`);
   } catch (error) {
     console.error('Veri çekme hatası:', error.message);
     process.exitCode = 1;
