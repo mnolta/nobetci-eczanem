@@ -3,15 +3,33 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
+async function fetchWithRetry(url, opts = {}, attempts = 3) {
+  const delays = [200, 800, 2000];
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await axios.get(url, opts);
+    } catch (err) {
+      const code = err && err.response && err.response.status;
+      // For 4xx (except 429) don't retry
+      if (code && code >= 400 && code < 500 && code !== 429) throw err;
+      if (i < attempts - 1) await new Promise(r => setTimeout(r, delays[i] || 1000));
+      else throw err;
+    }
+  }
+}
+
 async function fetchEczaneler() {
   try {
     const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
     const url = `https://www.aeo.org.tr/getPharmacies/${today}`;
 
-    const res = await axios.get(url, {
+    const res = await fetchWithRetry(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0',
-        'Accept': 'application/json, text/html'
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'Accept': 'application/json, text/html, */*',
+        'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Referer': 'https://www.aeo.org.tr/',
+        'Connection': 'keep-alive'
       },
       timeout: 15000
     });

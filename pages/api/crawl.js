@@ -26,7 +26,33 @@ export default async function handler(req, res) {
     // Use the site's HTML endpoint which returns the pharmacy list fragment
     const today = new Date().toISOString().slice(0, 10);
     const apiUrl = `https://www.aeo.org.tr/getPharmacies/${today}`;
-    const response = await axios.get(apiUrl, { timeout: 15000, headers: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'text/html' } });
+
+    // lightweight retry helper
+    async function getWithRetry(url, opts = {}, attempts = 3) {
+      const delays = [200, 800, 2000];
+      for (let i = 0; i < attempts; i++) {
+        try {
+          return await axios.get(url, opts);
+        } catch (err) {
+          const code = err && err.response && err.response.status;
+          if (code && code >= 400 && code < 500 && code !== 429) throw err;
+          if (i < attempts - 1) await new Promise(r => setTimeout(r, delays[i] || 1000));
+          else throw err;
+        }
+      }
+    }
+
+    const response = await getWithRetry(apiUrl, {
+      timeout: 15000,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Referer': 'https://www.aeo.org.tr/',
+        'Connection': 'keep-alive'
+      }
+    });
+
     let html = response.data || '';
     // Some endpoints return JSON { status, html: '<div...>' }
     if (typeof html === 'object' && html.html) {
