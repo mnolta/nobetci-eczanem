@@ -2,8 +2,8 @@ name: Check eczaneler-meta
 
 on:
   schedule:
-    # every 4 hours
-    - cron: '0 */4 * * *'
+    # every 6 hours (matches upstream 6h update frequency)
+    - cron: '0 */6 * * *'
   workflow_dispatch: {}
 
 jobs:
@@ -25,7 +25,8 @@ jobs:
       - name: Run eczaneler meta monitor
         env:
           META_URL: ${{ secrets.META_URL || 'https://nobetci-eczanem.vercel.app/eczaneler-meta.json' }}
-          THRESHOLD_HOURS: '6'
+          # Threshold is slightly above upstream update interval (6h -> 7h)
+          THRESHOLD_HOURS: '7'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/checkEczanelerMeta.js
