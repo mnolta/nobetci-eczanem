@@ -1,464 +1,462 @@
 {
   "Ankara": {
-    "Sincan": [
-      {
-        "isim": "ALTINTAŞ",
-        "adres": "TEMELLİ-Cumhuriyet Mah. Hürriyet Cad. No:18/18 Temelli/ Sincan/ANKARA",
-        "telefon": "5362810884",
-        "latitude": 39.72668168176577,
-        "longitude": 32.354539185762405
-      },
-      {
-        "isim": "BAŞ",
-        "adres": "Atatürk Mah. Polatlı2 Cad. No:50/A Sincan/ANKARA",
-        "telefon": "3122700107",
-        "latitude": 39.95679810868023,
-        "longitude": 32.58271336555481
-      },
-      {
-        "isim": "GÖKÇAY",
-        "adres": "Gökçek Mah. 362. Cad. L Blok No:4/A Sincan/ ANKARA",
-        "telefon": "5448324695",
-        "latitude": 39.9826878950133,
-        "longitude": 32.569460570812225
-      },
-      {
-        "isim": "KILIÇ",
-        "adres": "Menderes Mah. Melih Gökçek Bulvarı No:51/A Yenikent/ Sincan/ ANKARA",
-        "telefon": "3125113611",
-        "latitude": 40.01955204664987,
-        "longitude": 32.52246333136554
-      },
-      {
-        "isim": "SİNCAN MEYDAN",
-        "adres": "Atatürk Mah. Ankara Cad. No:36/C Sincan /ANKARA",
-        "telefon": "3128735555",
-        "latitude": 39.96311279259807,
-        "longitude": 32.579827308654785
-      }
-    ],
-    "Etimesgut": [
-      {
-        "isim": "ASLANKAN",
-        "adres": "Yeni Bağlıca Mah. Zirve Cad. No:91G/I\r\nEtimesgut/ ANKARA",
-        "telefon": "5377436504",
-        "latitude": 39.913748056592524,
-        "longitude": 32.64309525489807
-      },
-      {
-        "isim": "ATMACA",
-        "adres": "Oğuzlar Mah. 1564.Sok. No:17/A Elvankent/ Etimesgut/ ANKARA",
-        "telefon": "5523562524",
-        "latitude": 39.942005197917595,
-        "longitude": 32.6019682740116
-      },
-      {
-        "isim": "NAGİHAN ",
-        "adres": "Elvan Mah. 1934 Sokak No:3/A Etimesgut / ANKARA",
-        "telefon": "3122280061",
-        "latitude": 39.95421933370387,
-        "longitude": 32.62869715690613
-      }
-    ],
     "Çankaya": [
       {
-        "isim": "ASMABAHÇE ",
-        "adres": "Koru Mah. 2597.Sok.No:3/8 Çayyolu/ Çankaya/ ANKARA",
-        "telefon": "3122403515",
-        "latitude": 39.88635601174549,
-        "longitude": 32.68238425254822
+        "isim": "ŞUBE",
+        "adres": "Taşkent Cad. No:36/A Bahcelievler / Çankaya/ ANKARA  Eski Askerlik Şubesi yanı                            03122236946",
+        "telefon": "03122236946",
+        "latitude": 39.928760472433,
+        "longitude": 32.828886508942
       },
       {
-        "isim": "BELİT",
-        "adres": "Bahçelievler Mah. 54.Cad. No:58/A /Çankaya/ ANKARA ",
-        "telefon": "3122239112",
-        "latitude": 39.925296677367015,
-        "longitude": 32.82971262931824
+        "isim": "CUBES ÇUKURAMBAR",
+        "adres": "Çukurambar Mah. 1424. Cad. CUBES ANKARA B2 Blok No:6/2-7                             03125446404",
+        "telefon": "03125446404",
+        "latitude": 39.904969061535,
+        "longitude": 32.802840211577
       },
       {
-        "isim": "BERCAN İLHAN",
-        "adres": "Beytepe Mah.Kanuni Sultan Süleyman Bulvarı No:67/A Çankaya/ANKARA",
-        "telefon": "5343563394",
-        "latitude": 39.870139298828335,
-        "longitude": 32.704473584890366
+        "isim": "ŞEVVAL",
+        "adres": "Aşıkpaşa Mah. Ziya Oralay Cd. No:367/A Türközü/ Mamak/ ANKARA Türközü Bankamatikler yanı                            05074624688",
+        "telefon": "05074624688",
+        "latitude": 39.91051187179,
+        "longitude": 32.884138673544
       },
       {
-        "isim": "FEZA ",
-        "adres": "Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No:123/A Balgat / Çankaya/ ANKARA ",
-        "telefon": "3124729534",
-        "latitude": 39.890591464977966,
-        "longitude": 32.81622648239136
+        "isim": "TUNALI",
+        "adres": "Kavaklıdere Mah. Tunalı Hilmi Caddesi No:52/F Çankaya/ ANKARA                             03124180500",
+        "telefon": "03124180500",
+        "latitude": 39.909728004917,
+        "longitude": 32.86167383194
       },
       {
-        "isim": "HAŞMET",
-        "adres": "Fidanlık Mah. Ziya Gökalp Cad. No:43/B Kolej/ Çankaya/ ANKARA",
-        "telefon": "3124316070",
-        "latitude": 39.92334050189121,
-        "longitude": 32.861216246492404
+        "isim": "ECEM",
+        "adres": "Sancak Mah. Kondrat Adenaur Cad. No:32/A Çankaya/ANKARA                             03124963830",
+        "telefon": "03124963830",
+        "latitude": 39.866665334039,
+        "longitude": 32.862337678671
       },
       {
-        "isim": "KÖROĞLU",
-        "adres": "Uğur Mumcu Cad. No:87/8 Gaziosmanpaşa / Çankaya/ANKARA ",
-        "telefon": "3124363696",
-        "latitude": 39.89504067286409,
-        "longitude": 32.87806212902069
+        "isim": "EMİR",
+        "adres": "Fidanlık Mah. Ziya Gökalp Cad. No:31/A Çağdaş Market Sırası                            03124313111",
+        "telefon": "03124313111",
+        "latitude": 39.922349693027,
+        "longitude": 32.859750765685
       },
       {
-        "isim": "NİHAL",
-        "adres": "Hilal Mah. Cezayir Cad. No:5/D\r\nÇankaya/ ANKARA",
-        "telefon": "3124415838",
-        "latitude": 39.87238415849951,
-        "longitude": 32.85982357707326
+        "isim": "HİLALİN",
+        "adres": "Aydınlar Mah.Dikmen Cad.No:330/A Çankaya/ANKARA                             03122130896",
+        "telefon": "03122130896",
+        "latitude": 39.874232175596,
+        "longitude": 32.833764106035
       },
       {
-        "isim": "OYMAN",
-        "adres": "Remzi Oğuz Arık Mah. Güvenlik Cad. No:61/C Çankaya/ANKARA",
-        "telefon": "3124262146",
-        "latitude": 39.90387649480061,
-        "longitude": 32.85289764404297
+        "isim": "AYRANCI",
+        "adres": "Güvenlik Cad. No:39/A Ayrancı Mah./ Aşağı Ayrancı /Çankaya/ ANKARA                              03124674799",
+        "telefon": "03124674799",
+        "latitude": 39.905670681832,
+        "longitude": 32.852962017059
       },
       {
-        "isim": "VEFA",
-        "adres": "Sokullu Mehmet Paşa Cad. No:79/A Dikmen / Çankaya/ ANKARA ",
-        "telefon": "3124822674",
-        "latitude": 39.886076108630924,
-        "longitude": 32.83709138631821
+        "isim": "MUTLUKENT",
+        "adres": "Mutlukent Mah.1920. Cadde No:49/A Çankaya/ANKARA Medisun Hastanesi 200 Mt İlerisi                            0533 301 54 04",
+        "telefon": "0533 301 54 04",
+        "latitude": 39.890740156856,
+        "longitude": 32.712040161201
+      },
+      {
+        "isim": "KOZA",
+        "adres": "Kazım Özalp Mah. Koza Cad.Boranoğlu Apt.No:16/B Çankaya/ANKARA (GSM 5057402048) Migros Karşısı                            03124414841",
+        "telefon": "03124414841",
+        "latitude": 39.88811425763,
+        "longitude": 32.871302371183
       }
     ],
     "Yenimahalle": [
       {
-        "isim": "ATASUN",
-        "adres": "Turgut Özal Mah. 2302.Sok.5C Blok No:7/8 Çakırlar/ Batıkent/ ANKARA",
-        "telefon": "3123385807",
-        "latitude": 39.993382381950056,
-        "longitude": 32.69168347120285
+        "isim": "RABİA TUĞBA",
+        "adres": "Mehmet Akif Ersoy Mah. Park Avenue Sitesi No:78/3 Yenimahalle/ANKARA YDA Blokları-Pınar İlk.Okulu kar.                            03125045083",
+        "telefon": "03125045083",
+        "latitude": 39.966451845607,
+        "longitude": 32.773040235043
       },
       {
-        "isim": "BEGÜMÜN",
-        "adres": "Yeni Batı Mah. Necip Fazıl Cad. 5427.Sok. B Blok No:1  -Yenimahalle/ ANKARA - (Eryaman)",
-        "telefon": "5303125635",
-        "latitude": 39.98349558861697,
-        "longitude": 32.66264963156573
+        "isim": "YENİ MERVE",
+        "adres": "Pamuklar Mah. Kızılcahamam Cad. No:74/B Şentepe 2 Nolu ASM Karşısında                            05517140175",
+        "telefon": "05517140175",
+        "latitude": 39.981140302733,
+        "longitude": 32.80561029911
       },
       {
-        "isim": "DİLARA IŞIK",
-        "adres": "Işınlar Mah. Ragıp Tüzün Cad. No:37/A Yenimahalle/ ANKARA",
-        "telefon": "3129999346",
-        "latitude": 39.962268366789196,
-        "longitude": 32.81566933915656
+        "isim": "YİĞİTER",
+        "adres": "Turgutözal Mah. 2164.Cad. No:21C/1 Batıkent/Yenimahalle/ANKARA  Akkent 4 Sitesi önü                            03122525528",
+        "telefon": "03122525528",
+        "latitude": 39.994081041122,
+        "longitude": 32.706561684608
       },
       {
-        "isim": "FORA",
-        "adres": "İvedik O.S.B. 1354.Cad.Fora İş Merkezi No:138/29-30 Yenimahalle/ANKARA",
-        "telefon": "3123956240",
-        "latitude": 39.99383651122494,
-        "longitude": 32.7584034204483
-      },
-      {
-        "isim": "ÖZTEKİN",
-        "adres": "Karşıyaka Mah. 513.Cad.No:86/B Yenimahalle / ANKARA ",
-        "telefon": "3123351033",
-        "latitude": 39.97384785573379,
-        "longitude": 32.791938308282624
-      }
-    ],
-    "Balıseyh": [
-      {
-        "isim": "BALIŞEYH",
-        "adres": "Yeni Mah. 43.Sok. No:14/B Balışeyh/KIRIKKALE",
-        "telefon": "3182333318",
-        "latitude": 39.91609897798588,
-        "longitude": 33.71569521725178
-      }
-    ],
-    "Elmadağ": [
-      {
-        "isim": "BETÜL",
-        "adres": "Kemalpaşa Mah. Cumhuriyet Cad. No:52/A Elmadağ",
-        "telefon": "3128633902",
-        "latitude": 39.91866890407777,
-        "longitude": 33.23124629252561
-      },
-      {
-        "isim": "YILMAZ",
-        "adres": "Menderes Bulvarı Sağlık 1. Sok. No:2 Hasanoğlan /Elmadağ/ ANKARA (2.Tel:3128661233)",
-        "telefon": "3128663771",
-        "latitude": 39.99868995767894,
-        "longitude": 33.180084228515625
-      }
-    ],
-    "Altındağ": [
-      {
-        "isim": "BEYAZ",
-        "adres": "Ulucanlar Cad. No:84 Cebeci /Altındağ/ ANKARA ",
-        "telefon": "3123635150",
-        "latitude": 39.93557236567721,
-        "longitude": 32.875192165374756
-      },
-      {
-        "isim": "ESRANIN",
-        "adres": "Güneşevler Mah. 128 Cad. No:7/A Hasköy/ Altındağ/ ANKARA",
-        "telefon": "3123170542",
-        "latitude": 39.97151279278929,
-        "longitude": 32.884923219680786
-      }
-    ],
-    "Delice": [
-      {
-        "isim": "CENNET",
-        "adres": "Cumhuriyet Mah.Ankara Cad. No:34/A Delice KIRIKKALE",
-        "telefon": "3186185433",
-        "latitude": 39.943547507071926,
-        "longitude": 34.03240978717804
+        "isim": "NİSAN BİR",
+        "adres": "İnönü Mah. 1771.Sok. No:18/1  Batıkent/ Yenimahalle/ ANKARA Şenyıldız Çarşısı-Onur Koleji Altı                            05559942880",
+        "telefon": "05559942880",
+        "latitude": 39.955502308254,
+        "longitude": 32.72129917159
       }
     ],
     "Mamak": [
       {
-        "isim": "EGE MERKEZ",
-        "adres": "Ege Mah. Nato Yolu Cad. No:166/M Mamak/ ANKARA",
-        "telefon": "3123906062",
-        "latitude": 39.89716382279348,
-        "longitude": 32.920660481631785
+        "isim": "ALTINOK",
+        "adres": "Durali Alıç Mh. Şehit Hakan Yorulmaz Cd. No:49/G  Mamak/ ANKARA Boğaziçi 4 Cadde                             03125149165",
+        "telefon": "03125149165",
+        "latitude": 39.90416069757,
+        "longitude": 32.930899308644
       },
       {
-        "isim": "VERESELİ YENİ",
-        "adres": "Başak Mah. Başak Caddesi No:20/A -(Altındağ)-ANKARA",
-        "telefon": "5056756535",
-        "latitude": 39.969095425281324,
-        "longitude": 32.96102922409773
+        "isim": "SENA",
+        "adres": "Abdülhakhamit Cad. Harman Mah. No:197/A Mamak / ANKARA                              03123695374",
+        "telefon": "03123695374",
+        "latitude": 39.936026879112,
+        "longitude": 32.908970564604
+      }
+    ],
+    "Altındağ": [
+      {
+        "isim": "ÜNER",
+        "adres": "Hacettepe Mah. Talatpaşa Bulvarı Çarşı Sok. No:4/A Hamamarkası Altındağ-Ankara Otel Sema yanı                            03123112842",
+        "telefon": "03123112842",
+        "latitude": 39.934265365654,
+        "longitude": 32.863108813763
       },
       {
-        "isim": "YENİ BAYSAL",
-        "adres": "Çağlayan Mah.Anadolu Cad. No:146/B  Mamak/ ANKARA",
-        "telefon": "3123703707",
-        "latitude": 39.92875635876573,
-        "longitude": 32.911257147789
+        "isim": "DOĞANTEPE",
+        "adres": "Yıldıztepe Mah. Şehit Hacı Osman Dugan Cad. No:1 Altındağ/ ANKARA                             05317200304",
+        "telefon": "05317200304",
+        "latitude": 39.971794402322,
+        "longitude": 32.907444387674
       }
     ],
     "Keçiören": [
       {
-        "isim": "EMELİN",
-        "adres": "Osmangazi Mah. Sizin Sok. No:2/A / Keçiören/ ANKARA",
-        "telefon": "3125806116",
-        "latitude": 40.01580885506777,
-        "longitude": 32.86074700692552
+        "isim": "GÜLHANE",
+        "adres": "Aşağı Eğlence Mah.Gen. Dr. Tevfik Sağlam Cad. No:9 Etlik/ Keçiören/ ANKARA GATA Karşısı                            03123222122",
+        "telefon": "03123222122",
+        "latitude": 39.969407878954,
+        "longitude": 32.841353416443
       },
       {
-        "isim": "EZGİM",
-        "adres": "General Tevfik Sağlam Cad. No:144/B Etlik/Keçiören/Ankara",
-        "telefon": "3123222264",
-        "latitude": 39.97980848211048,
-        "longitude": 32.83706251540934
+        "isim": "YİĞİTLER",
+        "adres": "Yayla Mah. 1424. Sok. No:1/A Etlik/Keçiören/ ANKARA YaylaASM-Esertepe Dolmuşsondurağı                            03123784121",
+        "telefon": "03123784121",
+        "latitude": 39.990988392645,
+        "longitude": 32.824509143829
       },
       {
-        "isim": "OKYANUS",
-        "adres": "Sancaktepe Mah. 1595.Cad. No:26/A Keçiören/ANKARA",
-        "telefon": "5533009996",
-        "latitude": 39.99176721897554,
-        "longitude": 32.813895642757416
+        "isim": "ALTIN",
+        "adres": "Bağlarbaşı Mah. Bursa Cad. No:53/A Keçiören/ANKARA                              03123384600",
+        "telefon": "03123384600",
+        "latitude": 39.996314647643,
+        "longitude": 32.884515523911
       },
       {
-        "isim": "SERKAN",
-        "adres": "Sanatoryum Cad. 19 Mayıs Mah. Erfelek Sok. No:12/A Sanatoryum /Keçiören/ ANKARA ",
-        "telefon": "3123565353",
-        "latitude": 39.99134184527316,
-        "longitude": 32.85755395889282
+        "isim": "AKALIN",
+        "adres": "Kuşcağız Mah.357.Sokak No7/A-B Keçiören/ANKARA Kuşcağız Semt Polikliniği Karşısı                            05513833833",
+        "telefon": "05513833833",
+        "latitude": 39.998679684025,
+        "longitude": 32.853474258081
       }
     ],
-    "Çubuk": [
+    "Sincan": [
       {
-        "isim": "EMRE",
-        "adres": "Cumhuriyet Mah. Başak Sok.No:20/23 Çubuk/ ANKARA",
-        "telefon": "3128381318",
-        "latitude": 40.229414775052874,
-        "longitude": 33.03245544433594
-      }
-    ],
-    "Evren": [
+        "isim": "ÖZGE",
+        "adres": "Fevzi Çakmak Mah. Kanarya Sok. No:7/BA-7/BB Yenikent/Sincan/ ANKARA Yenikent ASM yanı                            05437417382",
+        "telefon": "05437417382",
+        "latitude": 40.012162011518,
+        "longitude": 32.517564616051
+      },
       {
-        "isim": "EVREN",
-        "adres": "Yeni Mah. Cumhuriyet Cad. No:73/C Evren/ ANKARA",
-        "telefon": "3128935068",
-        "latitude": 39.020033917449894,
-        "longitude": 33.805580735206604
-      }
-    ],
-    "Pursaklar": [
+        "isim": "OĞUZHAN SAZ",
+        "adres": "Akşemsettin Mah. Bosna Cad. Huzur Sok. No:4/1 Sincan/ ANKARA Özel Sincan Koru Hast.Acil Çıkışı                            03122680602",
+        "telefon": "03122680602",
+        "latitude": 39.965185008462,
+        "longitude": 32.58826084435
+      },
       {
-        "isim": "FARABİ",
-        "adres": "Merkez Mah. Yenişehir Sok. No:18/C Pursaklar/ ANKARA",
-        "telefon": "3123289328",
-        "latitude": 40.03680689594159,
-        "longitude": 32.892586290836334
-      }
-    ],
-    "Gölbaşı": [
+        "isim": "GÖRSEV",
+        "adres": "Andiçen Mah.Ahi Mesud Bulvarı(12.Cad.) 198/A Sincan/Ankara Sincan Devlet Hastanesi Karşısı                            03122641323",
+        "telefon": "03122641323",
+        "latitude": 39.950168759325,
+        "longitude": 32.588764429092
+      },
       {
-        "isim": "İREM",
-        "adres": "Gaziosmanpaşa Mh.377.Sok.No:9/A Gölbaşı/ ANKARA",
-        "telefon": "3124849632",
-        "latitude": 39.791711511273625,
-        "longitude": 32.80448645353317
-      }
-    ],
-    "Karakeçili": [
+        "isim": "KAF",
+        "adres": "Fatih Mah. Kültür Cad.No:10 AC/14 Fatih Sincan/ANKARA                             03125030027",
+        "telefon": "03125030027",
+        "latitude": 39.984925984395,
+        "longitude": 32.585957041429
+      },
       {
-        "isim": "KARAKEÇİLİ",
-        "adres": "Fatih Sultan Mehmet Mah.Hürriyet Cad.No:4/A Karakeçili/ KIRIKKALE",
-        "telefon": "3184743643",
-        "latitude": 39.99375020634632,
-        "longitude": 33.53324336319929
+        "isim": "ALTINTAŞ",
+        "adres": "TEMELLİ-Cumhuriyet Mah. Hürriyet Cad. No:18/18 Temelli/ Sincan/ANKARA Kasap Ali Yanı                            05362810884",
+        "telefon": "05362810884",
+        "latitude": 39.726681681766,
+        "longitude": 32.354539185762
       }
     ],
     "Ayaş": [
       {
         "isim": "KAYIRAN ",
-        "adres": "Camiatik Mah. Cumhuriyet Meydanı No:30/31 Ayaş / ANKARA ",
-        "telefon": "3127121084",
-        "latitude": 40.01920130768676,
-        "longitude": 32.33070373535156
+        "adres": "Camiatik Mah. Cumhuriyet Meydanı No:30/31 Ayaş / ANKARA                              03127121084",
+        "telefon": "03127121084",
+        "latitude": 40.019201307687,
+        "longitude": 32.330703735352
+      }
+    ],
+    "Akyurt": [
+      {
+        "isim": "YEŞİLTEPE",
+        "adres": "Yeşiltepe Mah. Çubuk Cad.No:28/A Akyurt/ANKARA Çubuk Yolu Üzeri Jandarma karşısı                            03128443193",
+        "telefon": "03128443193",
+        "latitude": 40.138125125025,
+        "longitude": 33.089060678612
+      }
+    ],
+    "Beypazarı": [
+      {
+        "isim": "YENİ CAN",
+        "adres": "Ayvaşık Mah. Sağlık Sok. No:5/A Beypazarı/ANKARA Beypazarı Devlet Hastanesi kar.                            03127627727",
+        "telefon": "03127627727",
+        "latitude": 40.162947369308,
+        "longitude": 31.931947767735
+      }
+    ],
+    "Etimesgut": [
+      {
+        "isim": "BAĞLICA SAĞLIK",
+        "adres": "Bağlıca Mah. Etimesgut Bulvarı No:116/A Etimesgut-ANKARA Özel Fatoş Abla Koleji Yanı                            03129995443",
+        "telefon": "03129995443",
+        "latitude": 39.894834887935,
+        "longitude": 32.647218356287
+      },
+      {
+        "isim": "ELVANKENT MERAM ",
+        "adres": "Piyade Mah. Ahi Mesut Bulvarı No:66/2 Etimesgut/ANKARA Gimsa yanı-Köfteci Yusuf Yanı                            03122281211",
+        "telefon": "03122281211",
+        "latitude": 39.941556893535,
+        "longitude": 32.639043355265
+      },
+      {
+        "isim": "ATAKENT",
+        "adres": "Atakent Mah. 1512.Cad. No:108/D Elvankent / Etimesgut/ ANKARA  Banka Blokları BIM Market Yanı                            03122600891",
+        "telefon": "03122600891",
+        "latitude": 39.955593801514,
+        "longitude": 32.611706947746
+      },
+      {
+        "isim": "GÖKSU",
+        "adres": "Göksu Mah.5328.Cadde No:8C/1 Eryaman/ Etimesgut/ ANKARA Vaditepe Başpınar Konutları yanı                            05549317801",
+        "telefon": "05549317801",
+        "latitude": 40.002599998308,
+        "longitude": 32.645817702287
+      }
+    ],
+    "Haymana": [
+      {
+        "isim": "HAYAT",
+        "adres": "Ankara Cad. No:12/A Haymana / ANKARA                              03126581220",
+        "telefon": "03126581220",
+        "latitude": 39.429828885208,
+        "longitude": 32.492065429688
+      }
+    ],
+    "Kazan": [
+      {
+        "isim": "YORULMAZ",
+        "adres": "Atatürk Mah. Gazi Mustafa Kemal Cad.No:5/A Kahramankazan / ANKARA                              03128141154",
+        "telefon": "03128141154",
+        "latitude": 40.204050425113,
+        "longitude": 32.680892944336
+      }
+    ],
+    "Kızılcahamam": [
+      {
+        "isim": "KERİM",
+        "adres": "Akçay Mah. Cengiz Topel Cad.No:6/B Kızılcahamam /ANKARA                             03127361195",
+        "telefon": "03127361195",
+        "latitude": 40.470772588791,
+        "longitude": 32.648403095081
+      }
+    ],
+    "Diğer": [
+      {
+        "isim": "MÜFTÜOĞLU",
+        "adres": "Lalahan Mah.Lalapaşa Cad.3/B Lalahan/ / ANKARA ((312865 18 85) “ÖZEL NÖBET BÖLGESİ LÜTFEN ECZANEYİ TELEFON İLE ARAYİNİZ.\"                            05408651885",
+        "telefon": "05408651885",
+        "latitude": 39.970676179525,
+        "longitude": 33.114105784334
+      }
+    ],
+    "Nallıhan": [
+      {
+        "isim": "ŞEYMA EROL",
+        "adres": "100.Yıl Mah.Aydın Cad.No:29/1 Nallıhan/ ANKARA                             03127856001",
+        "telefon": "03127856001",
+        "latitude": 40.193583635559,
+        "longitude": 31.338302493095
+      }
+    ],
+    "Polatlı": [
+      {
+        "isim": "KİRAZ",
+        "adres": "Zafer Mah.Turan Cad.No:30/B Polatlı/ANKARA Kız Meslek Lisesi karşısı                            03126222215",
+        "telefon": "03126222215",
+        "latitude": 39.58008148027,
+        "longitude": 32.142688930035
+      }
+    ],
+    "Yahşihan": [
+      {
+        "isim": "HAYAT",
+        "adres": "Yenişehir Mah. 260.sok No:2/D Yahşihan/KIRIKKALE Tıp Fakültesi Hastanesi karşısı                            03182240660",
+        "telefon": "03182240660",
+        "latitude": 39.869390995946,
+        "longitude": 33.457124233246
+      }
+    ],
+    "Şereflikoçhisar": [
+      {
+        "isim": "HALK",
+        "adres": "Kale Mah. Hüseyin Andaç Sok. No:22/A Şereflikoçhisar / ANKARA                              03126862848",
+        "telefon": "03126862848",
+        "latitude": 38.940117953845,
+        "longitude": 33.54467689991
+      }
+    ],
+    "Karakeçili": [
+      {
+        "isim": "KARAKEÇİLİ",
+        "adres": "Fatih Sultan Mehmet Mah.Hürriyet Cad.No:4/A Karakeçili/ KIRIKKALE                             03184743643",
+        "telefon": "03184743643",
+        "latitude": 39.993750206346,
+        "longitude": 33.533243363199
+      }
+    ],
+    "Kalecik": [
+      {
+        "isim": "SAĞLIK",
+        "adres": "Halit Cevri Aslangil Mah. Çağlar Cad. No:20.Sok. No:12/B Kalecik/ ANKARA  Kalecik Devlet Hastanesi Karşısı                            03128571110",
+        "telefon": "03128571110",
+        "latitude": 40.111110189041,
+        "longitude": 33.409390577835
+      }
+    ],
+    "Kırıkkale": [
+      {
+        "isim": "ÜÇERLER ",
+        "adres": "Zafer Cad. No:4/B /Merkez/ KIRIKKALE                             03182250264",
+        "telefon": "03182250264",
+        "latitude": 39.840267750367,
+        "longitude": 33.505532741547
+      },
+      {
+        "isim": "CEYHAN",
+        "adres": "Kaletepe Mah. 1050. Sokak No:34A Merkez/ KIRIKKALE Verem Sağlık yakını                            03185022010",
+        "telefon": "03185022010",
+        "latitude": 39.860145127909,
+        "longitude": 33.509840369225
+      }
+    ],
+    "Gölbaşı": [
+      {
+        "isim": "İNCEK",
+        "adres": "Kızılcaşar Mah. İncek Bulvarı 51/1 İncek/ Gölbaşı/ ANKARA İncek Migros üstü                            03124602001",
+        "telefon": "03124602001",
+        "latitude": 39.828766596198,
+        "longitude": 32.730811536312
+      },
+      {
+        "isim": "ÖZGE",
+        "adres": "Bahçelievler Mah. 281. Cad. No:94/D-E Gölbaşı/ ANKARA Gölbaşı 5 Nolu ASM Karşısı                            03124845655",
+        "telefon": "03124845655",
+        "latitude": 39.785034754846,
+        "longitude": 32.820298075676
+      }
+    ],
+    "Çubuk": [
+      {
+        "isim": "YAPRAK",
+        "adres": "Yavuz Selim Mah. Şeyh Şamil Bulvarı No:5/B Çubuk / ANKARA  Kiler Alışveriş Marketi kar.                            03128377763",
+        "telefon": "03128377763",
+        "latitude": 40.23881748912,
+        "longitude": 33.03391456604
+      }
+    ],
+    "Güdül": [
+      {
+        "isim": "ARINMIŞ",
+        "adres": "Yukarı Mah. Leblebici Sok.No:19 Güdül/ ANKARA                             05301178589",
+        "telefon": "05301178589",
+        "latitude": 40.210531690119,
+        "longitude": 32.242609262466
+      }
+    ],
+    "Bala": [
+      {
+        "isim": "ŞENBABA",
+        "adres": "Kartaltepe Mah. Alparslan Türkeş Bulvarı No:22/A Bala/ ANKARA                             03128761555",
+        "telefon": "03128761555",
+        "latitude": 39.551987767008,
+        "longitude": 33.12433719635
+      }
+    ],
+    "Elmadağ": [
+      {
+        "isim": "YILMAZ",
+        "adres": "Menderes Bulvarı Sağlık 1. Sok. No:2 Hasanoğlan /Elmadağ/ ANKARA (2.Tel:3128661233)                             03128663771",
+        "telefon": "03128663771",
+        "latitude": 39.998689957679,
+        "longitude": 33.180084228516
+      },
+      {
+        "isim": "ESRA",
+        "adres": "Gümüşpala Mah. Arif Çalış Cad. Altıner Apt. No:41/A Elmadağ/ANKARA Bim Market Karşısı                            03125434194",
+        "telefon": "03125434194",
+        "latitude": 39.922530040577,
+        "longitude": 33.231874514531
       }
     ],
     "Keskin": [
       {
         "isim": "KESKİN MERKEZ",
-        "adres": "Yenice Mah. Prof. Dr. Beşir Atalay Cad. No:18/A Keskin/Kırıkkale",
-        "telefon": "3185152023",
-        "latitude": 39.673669741659786,
-        "longitude": 33.615289656445384
+        "adres": "Yenice Mah. Prof. Dr. Beşir Atalay Cad. No:18/A Keskin/Kırıkkale                             03185152023",
+        "telefon": "03185152023",
+        "latitude": 39.67366974166,
+        "longitude": 33.615289656445
       }
     ],
-    "Haymana": [
-      {
-        "isim": "MELİKE",
-        "adres": "Medrese Mah. Nasuhubey Cad. No:6/A Haymana/ ANKARA",
-        "telefon": "3126580058",
-        "latitude": 39.433094916771644,
-        "longitude": 32.49420449137688
-      }
-    ],
-    "Nallıhan": [
-      {
-        "isim": "MURAT",
-        "adres": "Nasuhpaşa Mah. Mah. Bursa Cad. Olukbaşı Sok. No:1/A Nallıhan / ANKARA ",
-        "telefon": "3127854679",
-        "latitude": 40.188774803662255,
-        "longitude": 31.351375579833984
-      }
-    ],
-    "Akyurt": [
-      {
-        "isim": "NUR",
-        "adres": "Yıldırım Mah. Dr.Neslihan Özenli Cad. No:26/A Akyurt/ ANKARA",
-        "telefon": "3128440014",
-        "latitude": 40.12815779783335,
-        "longitude": 33.087855130434036
-      }
-    ],
-    "Çamlıdere": [
-      {
-        "isim": "NUR",
-        "adres": "Cumhuriyet Cad. No: 57/C Çamlıdere / ANKARA",
-        "telefon": "3127531017",
-        "latitude": 40.48873742102281,
-        "longitude": 32.472496032714844
-      }
-    ],
-    "Şereflikoçhisar": [
-      {
-        "isim": "PAŞA",
-        "adres": "Kale Mah. Ankara Cad.No:107/A Şereflikoçhisar/ ANKARA",
-        "telefon": "3126877549",
-        "latitude": 38.93932309540712,
-        "longitude": 33.543560111911574
-      }
-    ],
-    "Kırıkkale": [
-      {
-        "isim": "SELMA",
-        "adres": "Ovacık Mah. Hürriyet Caddesi No:92/A Merkez/ KIRIKKALE",
-        "telefon": "3182500105",
-        "latitude": 39.846445941915064,
-        "longitude": 33.50267082452774
-      },
+    "Pursaklar": [
       {
         "isim": "ŞAHİN",
-        "adres": "Fabrikalar Mah. 21.Sok. No:10/B Merkez/KIRIKKALE",
-        "telefon": "3182254722",
-        "latitude": 39.83776336506536,
-        "longitude": 33.49950313568115
+        "adres": "Mimar Sinan Mah. Çağatay Cad. No:41/C Pursaklar/ANKARA Pursaklar Devlet Hast.yanı                            03123285883",
+        "telefon": "03123285883",
+        "latitude": 40.048186571204,
+        "longitude": 32.893542643378
       }
     ],
-    "Kızılcahamam": [
+    "Balıseyh": [
       {
-        "isim": "SERENAY",
-        "adres": "Akçay Mah. Cengiztopel Cad. No:35/C Kızılcahamam/ ANKARA ",
-        "telefon": "3127366888",
-        "latitude": 40.47394185238928,
-        "longitude": 32.64990705996752
+        "isim": "BALIŞEYH",
+        "adres": "Yeni Mah. 43.Sok. No:14/B Balışeyh/KIRIKKALE Balışeyh Toplum Sağlığı Merkezi Karşısı                            03182333318",
+        "telefon": "03182333318",
+        "latitude": 39.916098977986,
+        "longitude": 33.715695217252
       }
     ],
-    "Polatlı": [
+    "Delice": [
       {
-        "isim": "SEVGİ",
-        "adres": "Cumhuriyet Mah. Atatürk Cad. No:59/A Polatlı/ ANKARA",
-        "telefon": "3126224243",
-        "latitude": 39.584119778093374,
-        "longitude": 32.14052870919659
-      }
-    ],
-    "Yahşihan": [
-      {
-        "isim": "SEYMEN",
-        "adres": "Yenişehir Mah. 383. Sokak No:3/B Yahşihan/ KIRIKKALE",
-        "telefon": "3185023131",
-        "latitude": 39.86916866504295,
-        "longitude": 33.455115258693695
-      }
-    ],
-    "Kazan": [
-      {
-        "isim": "ŞİRİN",
-        "adres": "Atatürk Mah. G.M.K. Cad. No:16/A-B  Kahramankazan/ ANKARA",
-        "telefon": "3128143790",
-        "latitude": 40.20386605642473,
-        "longitude": 32.679107812436996
-      }
-    ],
-    "Beypazarı": [
-      {
-        "isim": "TUĞBA ŞEKER",
-        "adres": "Ayvaşık Mah.Dr.Hamdi Soysal Sok. No:2/B Beypazarı/ ANKARA",
-        "telefon": "3127630302",
-        "latitude": 40.16208338164617,
-        "longitude": 31.9317626953125
-      }
-    ],
-    "Güdül": [
-      {
-        "isim": "VERESELİ GÜDÜL",
-        "adres": "Yukarı Gençlik Cad. No:10/A Güdül / ANKARA",
-        "telefon": "3127281533",
-        "latitude": 40.20877009281995,
-        "longitude": 32.24418640136719
-      }
-    ],
-    "Kalecik": [
-      {
-        "isim": "YENİ AYŞEM",
-        "adres": "Halit Cevri Aslangil Mah.20. Sok.No:14/C Kalecik/ANKARA ",
-        "telefon": "3128570859",
-        "latitude": 40.09711448043559,
-        "longitude": 33.40890884399414
-      }
-    ],
-    "Bala": [
-      {
-        "isim": "YENİ BALA",
-        "adres": "Kartaltepe Mah. Alparslan Türkeş Bulvarı No:4 Bala/ ANKARA",
-        "telefon": "3128761376",
-        "latitude": 39.5529473631908,
-        "longitude": 33.12390334904194
+        "isim": "CENNET",
+        "adres": "Cumhuriyet Mah.Ankara Cad. No:34/A Delice KIRIKKALE                             03186185433",
+        "telefon": "03186185433",
+        "latitude": 39.943547507072,
+        "longitude": 34.032409787178
       }
     ]
   }

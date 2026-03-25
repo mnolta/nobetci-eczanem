@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const axios = require('axios');
 const { getCachedData, isCacheValid, setCachedData } = require('@/lib/cache');
 
 const ANKARA_DISTRICTS = [
@@ -10,8 +10,6 @@ const ANKARA_DISTRICTS = [
 ];
 
 export default async function handler(req, res) {
-  let browser;
-
   // Check if cache is valid (skip if force refresh requested)
   if (req.query.force !== 'true' && isCacheValid()) {
     const cachedData = getCachedData();
@@ -25,136 +23,63 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Launch browser
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-      timeout: 10000
-    });
-
-    const page = await browser.newPage();
-    await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-
-    // Navigate to page
-    await page.goto('https://www.aeo.org.tr/nobetci-eczaneler', {
-      waitUntil: 'networkidle2',
-      timeout: 30000
-    });
-
-    // Wait for dynamic content
-    await new Promise(resolve => setTimeout(resolve, 3000));
-
-    const content = await page.content();
-
-    // Extract district list from option tags
-    const ilceRegex = /<option[^>]*value=['"](.*?)['"][^>]*>(.*?)<\/option>/g;
-    const ilceler = [];
-    let match;
-
-    while ((match = ilceRegex.exec(content)) !== null) {
-      const value = match[1].trim();
-      const text = match[2].trim();
-      if (value && value !== '-' && text && text !== '-') {
-        ilceler.push(text);
-      }
+    // Use the site's HTML endpoint which returns the pharmacy list fragment
+    const today = new Date().toISOString().slice(0, 10);
+    const apiUrl = `https://www.aeo.org.tr/getPharmacies/${today}`;
+    const response = await axios.get(apiUrl, { timeout: 15000, headers: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'text/html' } });
+    let html = response.data || '';
+    // Some endpoints return JSON { status, html: '<div...>' }
+    if (typeof html === 'object' && html.html) {
+      html = html.html;
     }
+    html = String(html || '');
 
-    const filteredIlceler = ilceler.filter(ilce => ANKARA_DISTRICTS.includes(ilce));
-    const uniqueIlceler = [...new Set(filteredIlceler)].sort();
+    // Parse HTML with cheerio
+    const cheerio = require('cheerio');
+    const $ = cheerio.load(html);
 
-    // Extract pharmacies from HTML
-    const h4Regex = /<h4[^>]*>([^<]+)<\/h4>/g;
-    const pRegex = /<p[^>]*>([\s\S]*?)<\/p>/g;
-
-    const h4s = [];
-    let h4Match;
-    while ((h4Match = h4Regex.exec(content)) !== null) {
-      h4s.push({
-        title: h4Match[1].trim(),
-        index: h4Match.index
-      });
-    }
-
-    const eczaneler = [];
-
-    h4s.forEach((h4, idx) => {
-      const nextH4Index = idx + 1 < h4s.length ? h4s[idx + 1].index : content.length;
-      const searchContent = content.substring(h4.index, nextH4Index);
-      const pMatches = [...searchContent.matchAll(pRegex)];
-
-      if (pMatches.length > 0) {
-        const title = h4.title;
-        const adresHtml = pMatches[0][1];
-        const adres = adresHtml.replace(/<[^>]*>/g, '').trim();
-
-        // Validate pharmacy name and address
-        if (!title.includes('ECZANE') || !adres.match(/\/\s*ANKARA/)) {
-          return;
-        }
-
-        // Extract coordinates from Google Maps link
-        const linkMatch = searchContent.match(/href="([^"]*google\.com\/maps[^"]*)"/);
-        let latitude = 0;
-        let longitude = 0;
-
-        if (linkMatch) {
-          const queryMatch = linkMatch[1].match(/query=([\d.]+),([\d.]+)/);
-          if (queryMatch) {
-            latitude = parseFloat(queryMatch[1]);
-            longitude = parseFloat(queryMatch[2]);
-          }
-        }
-
-        eczaneler.push({
-          isim: title,
-          adres: adres,
-          latitude,
-          longitude
-        });
-      }
-    });
-
-    // Group pharmacies by district
     const grouped = { "Ankara": {} };
+    const ilceSet = new Set();
 
-    eczaneler.forEach(eczane => {
-      let ilce = 'Diğer';
+    $('.inline-box').each((i, el) => {
+      const name = $(el).attr('data-name') || $(el).find('h4').text().trim();
+      const district = $(el).attr('data-district') || 'Diğer';
+      const adres = $(el).find('p').first().text().replace(/\n/g, ' ').trim();
+      const telefon = $(el).find('p span').first().text().trim() || '';
 
-      // Try to extract district from address
-      const ankaraMatch = eczane.adres.match(/\/\s*([^\/]+?)\s*(?:\/\s*)?ANKARA/);
-      if (ankaraMatch) {
-        const candidate = ankaraMatch[1].trim();
-        if (ANKARA_DISTRICTS.includes(candidate)) {
-          ilce = candidate;
-        }
+      // Try to extract coordinates from the first right-side google maps link
+      let latitude = 0;
+      let longitude = 0;
+      const mapLink = $(el).find('.right a[href*="google.com/maps"]').first().attr('href') || '';
+      const qMatch = mapLink.match(/query=([\d.\-]+),([\d.\-]+)/);
+      if (qMatch) {
+        latitude = parseFloat(qMatch[1]) || 0;
+        longitude = parseFloat(qMatch[2]) || 0;
       }
 
-      // If not found, search for district name in address
-      if (ilce === 'Diğer') {
-        for (const ilceCandidate of ANKARA_DISTRICTS) {
-          if (eczane.adres.includes(ilceCandidate)) {
-            ilce = ilceCandidate;
-            break;
-          }
-        }
-      }
+      const ilce = district.trim() || 'Diğer';
+      ilceSet.add(ilce);
 
-      if (!grouped["Ankara"][ilce]) grouped["Ankara"][ilce] = [];
-      grouped["Ankara"][ilce].push(eczane);
+      if (!grouped['Ankara'][ilce]) grouped['Ankara'][ilce] = [];
+
+      grouped['Ankara'][ilce].push({
+        isim: name,
+        adres: adres,
+        telefon: telefon,
+        latitude,
+        longitude
+      });
     });
 
-    // Combine districts from options and extracted data
-    const ilceFromEczaneler = Object.keys(grouped["Ankara"]);
-    const allIlceler = [...new Set([...uniqueIlceler, ...ilceFromEczaneler])].sort();
+    const allIlceler = Array.from(ilceSet).sort();
 
-    // Save to cache
-    setCachedData(grouped, allIlceler);
+    try {
+      setCachedData(grouped, allIlceler);
+    } catch (e) {
+      console.error('Cache write failed:', e.message);
+    }
 
-    return res.status(200).json({
-      ilceler: allIlceler,
-      eczaneler: grouped,
-      fromCache: false
-    });
+    return res.status(200).json({ ilceler: allIlceler, eczaneler: grouped, fromCache: false });
   } catch (error) {
     console.error('Error:', error.message);
 
@@ -173,13 +98,5 @@ export default async function handler(req, res) {
       message: 'Nöbetçi eczane verileri şu anda alınamıyor. Lütfen daha sonra tekrar deneyin.',
       error: error.message
     });
-  } finally {
-    if (browser) {
-      try {
-        await browser.close();
-      } catch (e) {
-        console.error('Error closing browser:', e.message);
-      }
-    }
   }
 }

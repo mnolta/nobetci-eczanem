@@ -1,54 +1,67 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const cheerio = require('cheerio');
 
 async function fetchEczaneler() {
   try {
     const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-    const response = await axios.get(`https://mvc.aeo.org.tr/home/NobetciEczaneGetirTarih?nobetTarihi=${today}`);
+    const url = `https://www.aeo.org.tr/getPharmacies/${today}`;
 
-    const data = response.data;
-    if (data && data.isSuccess) {
-      const eczaneler = data.NobetciEczaneBilgisiListesi;
-      console.log(`✅ ${eczaneler.length} adet nöbetçi eczane bulundu.`);
+    const res = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0',
+        'Accept': 'application/json, text/html'
+      },
+      timeout: 15000
+    });
 
-      // İL - İLÇE - ECZANE yapısına dönüştür
-      const ilIlceMap = {};
-
-      eczaneler.forEach((eczane) => {
-        const il = "Ankara"; // Sabit, çünkü sadece Ankara verisi geliyor
-        const ilce = eczane.IlceAdi?.trim() || "Belirtilmemiş";
-
-        if (!ilIlceMap[il]) {
-          ilIlceMap[il] = {};
-        }
-        if (!ilIlceMap[il][ilce]) {
-          ilIlceMap[il][ilce] = [];
-        }
-
-        ilIlceMap[il][ilce].push({
-          isim: eczane.EczaneAdi,
-          adres: eczane.EczaneAdresi,
-          telefon: eczane.Telefon,
-          eczaciAdi: eczane.EczaciAdi,
-          eczaciSoyadi: eczane.EczaciSoyadi,
-          adresAciklamasi: eczane.AdresAciklamasi,
-          latitude: eczane.KoordinatLat,
-          longitude: eczane.KoordinatLng
-        });
-      });
-
-      // Dosya yolu
-      const filePath = path.join(__dirname, '..', 'public', 'eczaneler.json');
-
-      // JSON dosyasına kaydet
-      fs.writeFileSync(filePath, JSON.stringify(ilIlceMap, null, 2), 'utf-8');
-      console.log(`✅ Veriler ${filePath} dosyasına kaydedildi.`);
-    } else {
-      console.error('API başarısız cevap verdi:', data.Message);
+    let body = res.data;
+    // Some responses are JSON with { status, html }
+    if (typeof body === 'object' && body.html) {
+      body = body.html;
     }
+
+    const $ = cheerio.load(String(body || ''));
+
+    const ilIlceMap = { Ankara: {} };
+
+    $('.inline-box').each((i, el) => {
+      const name = $(el).attr('data-name') || $(el).find('h4').text().trim();
+      const ilce = $(el).attr('data-district') || 'Diğer';
+      const adres = $(el).find('p').first().text().replace(/\n/g, ' ').trim();
+      const telefon = $(el).find('p span').first().text().trim() || '';
+
+      // Coordinates from google maps link if present
+      let latitude = null;
+      let longitude = null;
+      const mapLink = $(el).find('.right a[href*="google.com/maps"]').first().attr('href') || '';
+      const q = mapLink.match(/query=([\d.\-]+),([\d.\-]+)/);
+      if (q) {
+        latitude = parseFloat(q[1]);
+        longitude = parseFloat(q[2]);
+      }
+
+      if (!ilIlceMap.Ankara[ilce]) ilIlceMap.Ankara[ilce] = [];
+
+      ilIlceMap.Ankara[ilce].push({
+        isim: name,
+        adres,
+        telefon,
+        latitude,
+        longitude
+      });
+    });
+
+    // Dosya yolu
+    const filePath = path.join(__dirname, '..', 'public', 'eczaneler.json');
+
+    // JSON dosyasına kaydet
+    fs.writeFileSync(filePath, JSON.stringify(ilIlceMap, null, 2), 'utf-8');
+    console.log(`✅ Veriler ${filePath} dosyasına kaydedildi.`);
   } catch (error) {
     console.error('Veri çekme hatası:', error.message);
+    process.exitCode = 1;
   }
 }
 
