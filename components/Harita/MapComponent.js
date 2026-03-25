@@ -385,11 +385,12 @@ function SearchBar({ isMobile, eczanelerData, secilenSehir, setSecilenSehir, sec
                             outline: 'none',
                             marginLeft: '8px',
                             marginRight: '8px',
-                            fontSize: '14px',
+                            // Use 16px on mobile to avoid iOS/Android automatic zoom when focusing
+                            fontSize: isMobile ? '16px' : '14px',
                             fontFamily: 'inherit',
                             color: '#333',
                             backgroundColor: 'transparent',
-                            cursor: 'pointer',
+                            cursor: 'text',
                         }}
                     />
 
@@ -570,7 +571,8 @@ function SearchBar({ isMobile, eczanelerData, secilenSehir, setSecilenSehir, sec
                                     border: '1px solid #ddd',
                                     borderRadius: '8px',
                                     background: '#fff',
-                                    fontSize: '14px',
+                                    // Use 16px on mobile to avoid iOS/Android automatic zoom when focusing
+                                    fontSize: isMobile ? '16px' : '14px',
                                     color: '#333',
                                     boxSizing: 'border-box',
                                     cursor: 'pointer',
@@ -616,7 +618,8 @@ function SearchBar({ isMobile, eczanelerData, secilenSehir, setSecilenSehir, sec
                                         border: '1px solid #ddd',
                                         borderRadius: '8px',
                                         background: '#fff',
-                                        fontSize: '14px',
+                                        // Use 16px on mobile to avoid iOS/Android automatic zoom when focusing
+                                        fontSize: isMobile ? '16px' : '14px',
                                         color: '#333',
                                         boxSizing: 'border-box',
                                         cursor: 'pointer',
