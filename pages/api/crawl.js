@@ -27,6 +27,23 @@ export default async function handler(req, res) {
     const today = new Date().toISOString().slice(0, 10);
     const apiUrl = `https://www.aeo.org.tr/getPharmacies/${today}`;
 
+    // If a proxy / scraping service is configured via env, route the request through it.
+    function buildProxyUrl(originalUrl) {
+      const scraperKey = process.env.SCRAPERAPI_KEY;
+      const scrapingbeeKey = process.env.SCRAPINGBEE_KEY;
+      const proxyUrl = process.env.PROXY_URL;
+      if (scraperKey) return `http://api.scraperapi.com?api_key=${scraperKey}&url=${encodeURIComponent(originalUrl)}`;
+      if (scrapingbeeKey) return `https://app.scrapingbee.com/api/v1?api_key=${scrapingbeeKey}&url=${encodeURIComponent(originalUrl)}&render_js=false`;
+      if (proxyUrl) {
+        if (proxyUrl.includes('{url}')) return proxyUrl.replace('{url}', encodeURIComponent(originalUrl));
+        const sep = proxyUrl.includes('?') ? '&' : '?';
+        return `${proxyUrl}${sep}url=${encodeURIComponent(originalUrl)}`;
+      }
+      return originalUrl;
+    }
+
+    const targetUrl = buildProxyUrl(apiUrl);
+
     // lightweight retry helper
     async function getWithRetry(url, opts = {}, attempts = 3) {
       const delays = [200, 800, 2000];
@@ -42,7 +59,7 @@ export default async function handler(req, res) {
       }
     }
 
-    const response = await getWithRetry(apiUrl, {
+    const response = await getWithRetry(targetUrl, {
       timeout: 15000,
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
